@@ -1,122 +1,129 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Lesson Navigation
     document.getElementById('lesson1-btn').addEventListener('click', function() {
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 1 content and activate button
         document.getElementById('lesson1-content').classList.remove('hidden');
-        document.getElementById('lesson2-content').classList.add('hidden');
-        document.getElementById('lesson3-content').classList.add('hidden');
-        document.getElementById('lesson4-content').classList.add('hidden');
-        document.getElementById('lesson5-content').classList.add('hidden');
-        document.getElementById('lesson6-content').classList.add('hidden');
-        document.getElementById('lesson7-content').classList.add('hidden');
-        document.getElementById('lesson1-btn').classList.add('active');
-        document.getElementById('lesson2-btn').classList.remove('active');
-        document.getElementById('lesson3-btn').classList.remove('active');
-        document.getElementById('lesson4-btn').classList.remove('active');
-        document.getElementById('lesson5-btn').classList.remove('active');
-        document.getElementById('lesson6-btn').classList.remove('active');
-        document.getElementById('lesson7-btn').classList.remove('active');
+        this.classList.add('active');
     });
     
     document.getElementById('lesson2-btn').addEventListener('click', function() {
-        document.getElementById('lesson1-content').classList.add('hidden');
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 2 content and activate button
         document.getElementById('lesson2-content').classList.remove('hidden');
-        document.getElementById('lesson3-content').classList.add('hidden');
-        document.getElementById('lesson4-content').classList.add('hidden');
-        document.getElementById('lesson5-content').classList.add('hidden');
-        document.getElementById('lesson6-content').classList.add('hidden');
-        document.getElementById('lesson7-content').classList.add('hidden');
-        document.getElementById('lesson1-btn').classList.remove('active');
-        document.getElementById('lesson2-btn').classList.add('active');
-        document.getElementById('lesson3-btn').classList.remove('active');
-        document.getElementById('lesson4-btn').classList.remove('active');
-        document.getElementById('lesson5-btn').classList.remove('active');
-        document.getElementById('lesson6-btn').classList.remove('active');
-        document.getElementById('lesson7-btn').classList.remove('active');
+        this.classList.add('active');
     });
     
     document.getElementById('lesson3-btn').addEventListener('click', function() {
-        document.getElementById('lesson1-content').classList.add('hidden');
-        document.getElementById('lesson2-content').classList.add('hidden');
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 3 content and activate button
         document.getElementById('lesson3-content').classList.remove('hidden');
-        document.getElementById('lesson4-content').classList.add('hidden');
-        document.getElementById('lesson5-content').classList.add('hidden');
-        document.getElementById('lesson6-content').classList.add('hidden');
-        document.getElementById('lesson7-content').classList.add('hidden');
-        document.getElementById('lesson1-btn').classList.remove('active');
-        document.getElementById('lesson2-btn').classList.remove('active');
-        document.getElementById('lesson3-btn').classList.add('active');
-        document.getElementById('lesson4-btn').classList.remove('active');
-        document.getElementById('lesson5-btn').classList.remove('active');
-        document.getElementById('lesson6-btn').classList.remove('active');
-        document.getElementById('lesson7-btn').classList.remove('active');
+        this.classList.add('active');
     });
     
     document.getElementById('lesson4-btn').addEventListener('click', function() {
-        document.getElementById('lesson1-content').classList.add('hidden');
-        document.getElementById('lesson2-content').classList.add('hidden');
-        document.getElementById('lesson3-content').classList.add('hidden');
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 4 content and activate button
         document.getElementById('lesson4-content').classList.remove('hidden');
-        document.getElementById('lesson5-content').classList.add('hidden');
-        document.getElementById('lesson6-content').classList.add('hidden');
-        document.getElementById('lesson7-content').classList.add('hidden');
-        document.getElementById('lesson1-btn').classList.remove('active');
-        document.getElementById('lesson2-btn').classList.remove('active');
-        document.getElementById('lesson3-btn').classList.remove('active');
-        document.getElementById('lesson4-btn').classList.add('active');
-        document.getElementById('lesson5-btn').classList.remove('active');
-        document.getElementById('lesson6-btn').classList.remove('active');
-        document.getElementById('lesson7-btn').classList.remove('active');
+        this.classList.add('active');
     });
     
     document.getElementById('lesson5-btn').addEventListener('click', function() {
-        document.getElementById('lesson1-content').classList.add('hidden');
-        document.getElementById('lesson2-content').classList.add('hidden');
-        document.getElementById('lesson3-content').classList.add('hidden');
-        document.getElementById('lesson4-content').classList.add('hidden');
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 5 content and activate button
         document.getElementById('lesson5-content').classList.remove('hidden');
-        document.getElementById('lesson6-content').classList.add('hidden');
-        document.getElementById('lesson7-content').classList.add('hidden');
-        document.getElementById('lesson1-btn').classList.remove('active');
-        document.getElementById('lesson2-btn').classList.remove('active');
-        document.getElementById('lesson3-btn').classList.remove('active');
-        document.getElementById('lesson4-btn').classList.remove('active');
-        document.getElementById('lesson5-btn').classList.add('active');
-        document.getElementById('lesson6-btn').classList.remove('active');
-        document.getElementById('lesson7-btn').classList.remove('active');
+        this.classList.add('active');
     });
     
     document.getElementById('lesson6-btn').addEventListener('click', function() {
-        document.getElementById('lesson1-content').classList.add('hidden');
-        document.getElementById('lesson2-content').classList.add('hidden');
-        document.getElementById('lesson3-content').classList.add('hidden');
-        document.getElementById('lesson4-content').classList.add('hidden');
-        document.getElementById('lesson5-content').classList.add('hidden');
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 6 content and activate button
         document.getElementById('lesson6-content').classList.remove('hidden');
-        document.getElementById('lesson7-content').classList.add('hidden');
-        document.getElementById('lesson1-btn').classList.remove('active');
-        document.getElementById('lesson2-btn').classList.remove('active');
-        document.getElementById('lesson3-btn').classList.remove('active');
-        document.getElementById('lesson4-btn').classList.remove('active');
-        document.getElementById('lesson5-btn').classList.remove('active');
-        document.getElementById('lesson6-btn').classList.add('active');
-        document.getElementById('lesson7-btn').classList.remove('active');
+        this.classList.add('active');
     });
     
     document.getElementById('lesson7-btn').addEventListener('click', function() {
-        document.getElementById('lesson1-content').classList.add('hidden');
-        document.getElementById('lesson2-content').classList.add('hidden');
-        document.getElementById('lesson3-content').classList.add('hidden');
-        document.getElementById('lesson4-content').classList.add('hidden');
-        document.getElementById('lesson5-content').classList.add('hidden');
-        document.getElementById('lesson6-content').classList.add('hidden');
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 7 content and activate button
         document.getElementById('lesson7-content').classList.remove('hidden');
-        document.getElementById('lesson1-btn').classList.remove('active');
-        document.getElementById('lesson2-btn').classList.remove('active');
-        document.getElementById('lesson3-btn').classList.remove('active');
-        document.getElementById('lesson4-btn').classList.remove('active');
-        document.getElementById('lesson5-btn').classList.remove('active');
-        document.getElementById('lesson6-btn').classList.remove('active');
-        document.getElementById('lesson7-btn').classList.add('active');
+        this.classList.add('active');
     });
     
     // Cross-lesson navigation
