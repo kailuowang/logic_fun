@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('lesson4-content').classList.add('hidden');
         document.getElementById('lesson5-content').classList.add('hidden');
         document.getElementById('lesson6-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.add('hidden');
         document.getElementById('lesson1-btn').classList.add('active');
         document.getElementById('lesson2-btn').classList.remove('active');
         document.getElementById('lesson3-btn').classList.remove('active');
         document.getElementById('lesson4-btn').classList.remove('active');
         document.getElementById('lesson5-btn').classList.remove('active');
         document.getElementById('lesson6-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.remove('active');
     });
     
     document.getElementById('lesson2-btn').addEventListener('click', function() {
@@ -22,12 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('lesson4-content').classList.add('hidden');
         document.getElementById('lesson5-content').classList.add('hidden');
         document.getElementById('lesson6-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.add('hidden');
         document.getElementById('lesson1-btn').classList.remove('active');
         document.getElementById('lesson2-btn').classList.add('active');
         document.getElementById('lesson3-btn').classList.remove('active');
         document.getElementById('lesson4-btn').classList.remove('active');
         document.getElementById('lesson5-btn').classList.remove('active');
         document.getElementById('lesson6-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.remove('active');
     });
     
     document.getElementById('lesson3-btn').addEventListener('click', function() {
@@ -37,12 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('lesson4-content').classList.add('hidden');
         document.getElementById('lesson5-content').classList.add('hidden');
         document.getElementById('lesson6-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.add('hidden');
         document.getElementById('lesson1-btn').classList.remove('active');
         document.getElementById('lesson2-btn').classList.remove('active');
         document.getElementById('lesson3-btn').classList.add('active');
         document.getElementById('lesson4-btn').classList.remove('active');
         document.getElementById('lesson5-btn').classList.remove('active');
         document.getElementById('lesson6-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.remove('active');
     });
     
     document.getElementById('lesson4-btn').addEventListener('click', function() {
@@ -52,12 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('lesson4-content').classList.remove('hidden');
         document.getElementById('lesson5-content').classList.add('hidden');
         document.getElementById('lesson6-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.add('hidden');
         document.getElementById('lesson1-btn').classList.remove('active');
         document.getElementById('lesson2-btn').classList.remove('active');
         document.getElementById('lesson3-btn').classList.remove('active');
         document.getElementById('lesson4-btn').classList.add('active');
         document.getElementById('lesson5-btn').classList.remove('active');
         document.getElementById('lesson6-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.remove('active');
     });
     
     document.getElementById('lesson5-btn').addEventListener('click', function() {
@@ -67,12 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('lesson4-content').classList.add('hidden');
         document.getElementById('lesson5-content').classList.remove('hidden');
         document.getElementById('lesson6-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.add('hidden');
         document.getElementById('lesson1-btn').classList.remove('active');
         document.getElementById('lesson2-btn').classList.remove('active');
         document.getElementById('lesson3-btn').classList.remove('active');
         document.getElementById('lesson4-btn').classList.remove('active');
         document.getElementById('lesson5-btn').classList.add('active');
         document.getElementById('lesson6-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.remove('active');
     });
     
     document.getElementById('lesson6-btn').addEventListener('click', function() {
@@ -82,12 +92,31 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('lesson4-content').classList.add('hidden');
         document.getElementById('lesson5-content').classList.add('hidden');
         document.getElementById('lesson6-content').classList.remove('hidden');
+        document.getElementById('lesson7-content').classList.add('hidden');
         document.getElementById('lesson1-btn').classList.remove('active');
         document.getElementById('lesson2-btn').classList.remove('active');
         document.getElementById('lesson3-btn').classList.remove('active');
         document.getElementById('lesson4-btn').classList.remove('active');
         document.getElementById('lesson5-btn').classList.remove('active');
         document.getElementById('lesson6-btn').classList.add('active');
+        document.getElementById('lesson7-btn').classList.remove('active');
+    });
+    
+    document.getElementById('lesson7-btn').addEventListener('click', function() {
+        document.getElementById('lesson1-content').classList.add('hidden');
+        document.getElementById('lesson2-content').classList.add('hidden');
+        document.getElementById('lesson3-content').classList.add('hidden');
+        document.getElementById('lesson4-content').classList.add('hidden');
+        document.getElementById('lesson5-content').classList.add('hidden');
+        document.getElementById('lesson6-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.remove('hidden');
+        document.getElementById('lesson1-btn').classList.remove('active');
+        document.getElementById('lesson2-btn').classList.remove('active');
+        document.getElementById('lesson3-btn').classList.remove('active');
+        document.getElementById('lesson4-btn').classList.remove('active');
+        document.getElementById('lesson5-btn').classList.remove('active');
+        document.getElementById('lesson6-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.add('active');
     });
     
     // Cross-lesson navigation
@@ -1656,5 +1685,920 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('feedback63').textContent = '';
         document.getElementById('promise-explanation').classList.add('hidden');
         document.getElementById('complete-lesson6').classList.add('hidden');
+    }
+    
+    // Add to Lesson 6 to navigate to Lesson 7
+    document.getElementById('next-to-lesson7').addEventListener('click', function() {
+        document.getElementById('lesson6-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.remove('hidden');
+        document.getElementById('lesson6-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.add('active');
+    });
+    
+    //------------------ LESSON 7 ------------------//
+    
+    // Building Arguments scenarios
+    const argumentScenarios = [
+        {
+            premises: [
+                "All dogs have fur.",
+                "Buddy is a dog.",
+                // Optional third premise can be shown or hidden
+                "Things with fur are warm in winter."
+            ],
+            conclusions: [
+                "Buddy has fur.",
+                "Buddy is a cat.",
+                "All dogs are warm in winter."
+            ],
+            correctIndex: 0,
+            explanation: "Since all dogs have fur (premise 1), and Buddy is a dog (premise 2), we can conclude that Buddy has fur. This is a valid deduction based on the categorical premises."
+        },
+        {
+            premises: [
+                "If it rains, the ground gets wet.",
+                "The ground is wet."
+            ],
+            conclusions: [
+                "It definitely rained.",
+                "It might have rained, but we can't be certain.",
+                "It definitely did not rain."
+            ],
+            correctIndex: 1,
+            explanation: "The premises tell us that rain causes wet ground, but they don't tell us that rain is the ONLY thing that causes wet ground. Someone might have watered the garden, or there could be another reason for the wet ground. We can't be certain that it rained based only on these premises."
+        },
+        {
+            premises: [
+                "If Tom eats candy before dinner, he will get a stomachache.",
+                "Tom has a stomachache."
+            ],
+            conclusions: [
+                "Tom definitely ate candy before dinner.",
+                "Tom might have eaten candy before dinner, but we can't be certain.",
+                "Tom definitely did not eat candy before dinner."
+            ],
+            correctIndex: 1,
+            explanation: "The premises tell us that eating candy before dinner leads to a stomachache, but they don't tell us that candy is the ONLY cause of stomachaches. Tom might have eaten something else that upset his stomach, or he might be sick for another reason. We can't be certain that he ate candy based only on these premises."
+        },
+        {
+            premises: [
+                "If a toy is left outside, it gets dirty.",
+                "The teddy bear is not dirty."
+            ],
+            conclusions: [
+                "The teddy bear was left outside.",
+                "The teddy bear might have been left outside.",
+                "The teddy bear was not left outside."
+            ],
+            correctIndex: 2,
+            explanation: "The first premise tells us: IF left outside, THEN gets dirty. The second premise tells us the teddy bear is NOT dirty. Using the logical rule of modus tollens (denying the consequent), we can conclude that the teddy bear was NOT left outside. If it had been left outside, it would be dirty according to our premises."
+        }
+    ];
+    
+    // Story argument scenarios
+    const storyScenarios = [
+        {
+            story: "The cat was meowing loudly. Cats meow when they are hungry. Therefore, the cat was probably hungry.",
+            sentences: [
+                "The cat was meowing loudly.",
+                "Cats meow when they are hungry.",
+                "The cat was probably hungry."
+            ],
+            premises: [0, 1],
+            conclusion: 2
+        },
+        {
+            story: "The ground was wet this morning. It must have rained last night because the ground gets wet when it rains.",
+            sentences: [
+                "The ground was wet this morning.",
+                "The ground gets wet when it rains.",
+                "It must have rained last night."
+            ],
+            premises: [0, 1],
+            conclusion: 2
+        },
+        {
+            story: "The light was on in the room. Someone must have been in the room because someone needs to turn the light on for it to be on.",
+            sentences: [
+                "The light was on in the room.",
+                "Someone needs to turn the light on for it to be on.",
+                "Someone must have been in the room."
+            ],
+            premises: [0, 1],
+            conclusion: 2
+        }
+    ];
+    
+    // Mystery scenarios suggestions
+    const mysterySuggestions = {
+        "toy": {
+            title: "The Case of the Missing Toy",
+            premise1: "The toy was last seen in the playroom.",
+            premise2: "Only the dog and the baby were in the playroom today."
+        },
+        "vase": {
+            title: "The Case of the Broken Vase",
+            premise1: "The vase was fine this morning.",
+            premise2: "The cat was playing in the room where the vase was."
+        },
+        "juice": {
+            title: "The Case of the Spilled Juice",
+            premise1: "The juice was on the table before lunch.",
+            premise2: "The little brother was reaching for cookies on the table."
+        }
+    };
+    
+    let currentArgumentIndex = 0;
+    let currentStoryIndex = 0;
+    let draggedElement = null;
+    
+    // Initialize drag-and-drop functionality
+    function initializeDragAndDrop() {
+        // Initialize draggable elements
+        const sentences = document.querySelectorAll('.sentence');
+        sentences.forEach(sentence => {
+            sentence.addEventListener('dragstart', handleDragStart);
+            sentence.addEventListener('dragend', handleDragEnd);
+        });
+        
+        // Initialize drop targets
+        const premisesDrop = document.getElementById('premises-drop');
+        const conclusionDrop = document.getElementById('conclusion-drop');
+        
+        [premisesDrop, conclusionDrop].forEach(dropzone => {
+            dropzone.addEventListener('dragover', handleDragOver);
+            dropzone.addEventListener('dragenter', handleDragEnter);
+            dropzone.addEventListener('dragleave', handleDragLeave);
+            dropzone.addEventListener('drop', handleDrop);
+        });
+    }
+    
+    // Drag and drop handlers
+    function handleDragStart(e) {
+        draggedElement = this;
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.innerHTML);
+        this.style.opacity = '0.4';
+    }
+    
+    function handleDragEnd(e) {
+        this.style.opacity = '1';
+    }
+    
+    function handleDragOver(e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        e.dataTransfer.dropEffect = 'move';
+        return false;
+    }
+    
+    function handleDragEnter(e) {
+        this.classList.add('dragover');
+    }
+    
+    function handleDragLeave(e) {
+        this.classList.remove('dragover');
+    }
+    
+    function handleDrop(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        }
+        
+        if (draggedElement !== null) {
+            // Create a clone of the dragged element
+            const clone = draggedElement.cloneNode(true);
+            clone.classList.add('dropped');
+            clone.addEventListener('click', function() {
+                this.parentNode.removeChild(this);
+                draggedElement.style.display = 'block';
+            });
+            
+            // Remove the original from the source container
+            draggedElement.style.display = 'none';
+            
+            // Add the clone to the target container
+            this.appendChild(clone);
+            
+            // Remove the highlight
+            this.classList.remove('dragover');
+        }
+        
+        return false;
+    }
+    
+    // Navigation and activity initialization for Lesson 7
+    document.getElementById('start-activity7').addEventListener('click', function() {
+        document.getElementById('introduction7').classList.add('hidden');
+        document.getElementById('activity71').classList.remove('hidden');
+        loadArgumentScenario();
+    });
+    
+    // Activity 1: Building Arguments
+    function loadArgumentScenario() {
+        const scenario = argumentScenarios[currentArgumentIndex];
+        
+        // Set premises
+        document.getElementById('premise1').textContent = scenario.premises[0];
+        document.getElementById('premise2').textContent = scenario.premises[1];
+        
+        // Handle optional third premise
+        const premise3 = document.getElementById('premise3');
+        if (scenario.premises.length > 2) {
+            premise3.textContent = scenario.premises[2];
+            premise3.style.display = 'block';
+        } else {
+            premise3.style.display = 'none';
+        }
+        
+        // Set conclusion options
+        document.getElementById('conclusion-label1').textContent = scenario.conclusions[0];
+        document.getElementById('conclusion-label2').textContent = scenario.conclusions[1];
+        document.getElementById('conclusion-label3').textContent = scenario.conclusions[2];
+        
+        // Reset radio buttons
+        const radioButtons = document.querySelectorAll('input[name="argument-conclusion"]');
+        radioButtons.forEach(radio => {
+            radio.checked = false;
+        });
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback71').textContent = '';
+        document.getElementById('argument-explanation').classList.add('hidden');
+        document.getElementById('next71').classList.add('hidden');
+    }
+    
+    document.getElementById('check-argument').addEventListener('click', function() {
+        const selectedConclusion = document.querySelector('input[name="argument-conclusion"]:checked');
+        
+        if (!selectedConclusion) {
+            alert("Please select a conclusion before checking!");
+            return;
+        }
+        
+        const scenario = argumentScenarios[currentArgumentIndex];
+        const selectedIndex = parseInt(selectedConclusion.id.replace('conclusion-option', '')) - 1;
+        const feedback = document.getElementById('feedback71');
+        
+        if (selectedIndex === scenario.correctIndex) {
+            feedback.textContent = "Correct! That's excellent logical reasoning!";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Think carefully about what logically follows from the premises.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('argument-explanation-text').textContent = scenario.explanation;
+        document.getElementById('argument-explanation').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next71').classList.remove('hidden');
+    });
+    
+    document.getElementById('next71').addEventListener('click', function() {
+        currentArgumentIndex++;
+        
+        if (currentArgumentIndex < argumentScenarios.length) {
+            loadArgumentScenario();
+        } else {
+            document.getElementById('activity71').classList.add('hidden');
+            document.getElementById('activity72').classList.remove('hidden');
+            loadStoryScenario();
+            initializeDragAndDrop();
+        }
+    });
+    
+    // Activity 2: Story Argument Identification
+    function loadStoryScenario() {
+        const scenario = storyScenarios[currentStoryIndex];
+        
+        // Set the story
+        document.getElementById('story-text').textContent = scenario.story;
+        
+        // Set the sentences
+        document.getElementById('sentence1').textContent = scenario.sentences[0];
+        document.getElementById('sentence2').textContent = scenario.sentences[1];
+        document.getElementById('sentence3').textContent = scenario.sentences[2];
+        
+        // Reset the drag and drop areas
+        document.getElementById('premises-drop').innerHTML = '';
+        document.getElementById('conclusion-drop').innerHTML = '';
+        
+        // Make sure all sentences are visible
+        const sentences = document.querySelectorAll('.sentence');
+        sentences.forEach(sentence => {
+            sentence.style.display = 'block';
+            sentence.classList.remove('dropped');
+        });
+        
+        // Hide feedback and next button
+        document.getElementById('feedback72').textContent = '';
+        document.getElementById('next72').classList.add('hidden');
+    }
+    
+    document.getElementById('check-identification').addEventListener('click', function() {
+        const currentScenario = storyScenarios[currentStoryIndex];
+        const premisesDrop = document.getElementById('premises-drop');
+        const conclusionDrop = document.getElementById('conclusion-drop');
+        const feedback = document.getElementById('feedback72');
+        
+        // Get the ids of the sentences in the premises and conclusion areas
+        const premisesElements = premisesDrop.querySelectorAll('.sentence');
+        const conclusionElements = conclusionDrop.querySelectorAll('.sentence');
+        
+        // Check if all sentences have been placed
+        if (premisesElements.length < 2 || conclusionElements.length !== 1) {
+            alert("Please place all sentences: 2 premises and 1 conclusion!");
+            return;
+        }
+        
+        // Get the indices from the element ids
+        const premisesIndices = Array.from(premisesElements).map(el => parseInt(el.id.replace('sentence', '')) - 1);
+        const conclusionIndex = parseInt(conclusionElements[0].id.replace('sentence', '')) - 1;
+        
+        // Check if the premises and conclusion match the correct ones
+        const correctPremises = currentScenario.premises;
+        const correctConclusion = currentScenario.conclusion;
+        
+        const premisesCorrect = premisesIndices.length === correctPremises.length && 
+                               premisesIndices.every(index => correctPremises.includes(index));
+        const conclusionCorrect = conclusionIndex === correctConclusion;
+        
+        if (premisesCorrect && conclusionCorrect) {
+            feedback.textContent = "Correct! You've correctly identified the premises and conclusion in this argument!";
+            feedback.style.color = "green";
+            document.getElementById('next72').classList.remove('hidden');
+        } else if (premisesCorrect) {
+            feedback.textContent = "Almost! You've identified the premises correctly, but the conclusion is incorrect.";
+            feedback.style.color = "orange";
+        } else if (conclusionCorrect) {
+            feedback.textContent = "Almost! You've identified the conclusion correctly, but the premises are incorrect.";
+            feedback.style.color = "orange";
+        } else {
+            feedback.textContent = "Not quite right. Try again to identify which sentences are the premises and which is the conclusion.";
+            feedback.style.color = "red";
+        }
+    });
+    
+    document.getElementById('next72').addEventListener('click', function() {
+        currentStoryIndex++;
+        
+        if (currentStoryIndex < storyScenarios.length) {
+            loadStoryScenario();
+        } else {
+            document.getElementById('activity72').classList.add('hidden');
+            document.getElementById('activity73').classList.remove('hidden');
+            initializeMysteryActivity();
+        }
+    });
+    
+    // Activity 3: Create Your Own Mystery
+    function initializeMysteryActivity() {
+        // Handle scenario selection changes
+        document.getElementById('mystery-scenario').addEventListener('change', function() {
+            const selectedValue = this.value;
+            const customMysteryDiv = document.getElementById('custom-mystery');
+            
+            if (selectedValue === 'custom') {
+                customMysteryDiv.classList.remove('hidden');
+            } else {
+                customMysteryDiv.classList.add('hidden');
+                
+                // Pre-fill with suggestions if a preset scenario is selected
+                if (mysterySuggestions[selectedValue]) {
+                    document.getElementById('premise-input1').value = mysterySuggestions[selectedValue].premise1;
+                    document.getElementById('premise-input2').value = mysterySuggestions[selectedValue].premise2;
+                }
+            }
+        });
+        
+        // Initialize with the first scenario
+        const firstScenario = document.getElementById('mystery-scenario').value;
+        if (mysterySuggestions[firstScenario]) {
+            document.getElementById('premise-input1').value = mysterySuggestions[firstScenario].premise1;
+            document.getElementById('premise-input2').value = mysterySuggestions[firstScenario].premise2;
+        }
+    }
+    
+    document.getElementById('check-mystery').addEventListener('click', function() {
+        const mysteryScenario = document.getElementById('mystery-scenario').value;
+        const premise1 = document.getElementById('premise-input1').value.trim();
+        const premise2 = document.getElementById('premise-input2').value.trim();
+        const conclusion = document.getElementById('conclusion-input').value.trim();
+        
+        // Validation
+        if (!premise1 || !premise2 || !conclusion) {
+            alert("Please fill in both premises and a conclusion!");
+            return;
+        }
+        
+        // Get the mystery title
+        let mysteryTitle;
+        if (mysteryScenario === 'custom') {
+            mysteryTitle = document.getElementById('custom-mystery-input').value.trim();
+            if (!mysteryTitle) {
+                alert("Please provide a title for your custom mystery!");
+                return;
+            }
+        } else {
+            mysteryTitle = mysterySuggestions[mysteryScenario].title;
+        }
+        
+        // Display the mystery
+        document.getElementById('mystery-title').textContent = mysteryTitle;
+        document.getElementById('mystery-premise1').textContent = premise1;
+        document.getElementById('mystery-premise2').textContent = premise2;
+        document.getElementById('mystery-conclusion').textContent = conclusion;
+        
+        // Give some positive feedback
+        document.getElementById('mystery-evaluation').textContent = `Great job constructing a logical argument to solve this mystery! Your premises provide evidence that supports your conclusion.`;
+        
+        // Show the mystery feedback and complete button
+        document.getElementById('mystery-feedback').classList.remove('hidden');
+        document.getElementById('feedback73').textContent = "You've created a logical argument for your mystery. Well done!";
+        document.getElementById('feedback73').style.color = "green";
+        document.getElementById('complete-lesson7').classList.remove('hidden');
+    });
+    
+    document.getElementById('complete-lesson7').addEventListener('click', function() {
+        document.getElementById('activity73').classList.add('hidden');
+        document.getElementById('completion7').classList.remove('hidden');
+    });
+    
+    document.getElementById('restart-final7').addEventListener('click', function() {
+        resetLesson7();
+        document.getElementById('completion7').classList.add('hidden');
+        document.getElementById('introduction7').classList.remove('hidden');
+    });
+    
+    document.getElementById('back-to-lesson6').addEventListener('click', function() {
+        document.getElementById('lesson7-content').classList.add('hidden');
+        document.getElementById('lesson6-content').classList.remove('hidden');
+        document.getElementById('lesson7-btn').classList.remove('active');
+        document.getElementById('lesson6-btn').classList.add('active');
+    });
+    
+    function resetLesson7() {
+        currentArgumentIndex = 0;
+        currentStoryIndex = 0;
+        
+        // Reset Activity 1
+        loadArgumentScenario();
+        
+        // Reset Activity 2
+        if (document.getElementById('activity72').classList.contains('hidden')) {
+            // If the activity hasn't been loaded yet, we don't need to reset it
+        } else {
+            loadStoryScenario();
+        }
+        
+        // Reset Activity 3
+        document.getElementById('premise-input1').value = '';
+        document.getElementById('premise-input2').value = '';
+        document.getElementById('conclusion-input').value = '';
+        document.getElementById('mystery-feedback').classList.add('hidden');
+        document.getElementById('feedback73').textContent = '';
+        document.getElementById('complete-lesson7').classList.add('hidden');
+        
+        // Reset custom mystery input
+        document.getElementById('custom-mystery').classList.add('hidden');
+        document.getElementById('custom-mystery-input').value = '';
+        
+        // Reset to first mystery scenario
+        document.getElementById('mystery-scenario').selectedIndex = 0;
+        const firstScenario = document.getElementById('mystery-scenario').value;
+        if (mysterySuggestions[firstScenario]) {
+            document.getElementById('premise-input1').value = mysterySuggestions[firstScenario].premise1;
+            document.getElementById('premise-input2').value = mysterySuggestions[firstScenario].premise2;
+        }
+    }
+    
+    //------------------ LESSON 8 ------------------//
+    
+    // Argument Sorting scenarios (Activity 1)
+    const sortingScenarios = [
+        {
+            premises: [
+                "All birds can fly.",
+                "Tweety is a bird."
+            ],
+            conclusion: "Therefore, Tweety can fly.",
+            isValid: true,
+            explanation: "This is a valid argument. If all birds can fly, and Tweety is a bird, then Tweety must be able to fly. The structure guarantees that if the premises are true, the conclusion must be true."
+        },
+        {
+            premises: [
+                "All cats have fur.",
+                "My dog has fur."
+            ],
+            conclusion: "Therefore, my dog is a cat.",
+            isValid: false,
+            explanation: "This is an invalid argument. Just because all cats have fur doesn't mean that everything with fur is a cat. Many other animals also have fur, so the conclusion doesn't necessarily follow from the premises."
+        },
+        {
+            premises: [
+                "If it rains, the ground gets wet.",
+                "It rained."
+            ],
+            conclusion: "Therefore, the ground is wet.",
+            isValid: true,
+            explanation: "This is a valid argument using modus ponens (affirming the antecedent). If rain causes wet ground, and it rained, then the ground must be wet."
+        },
+        {
+            premises: [
+                "If it rains, the ground gets wet.",
+                "The ground is wet."
+            ],
+            conclusion: "Therefore, it rained.",
+            isValid: false,
+            explanation: "This is an invalid argument committing the fallacy of affirming the consequent. Just because rain causes wet ground doesn't mean wet ground is only caused by rain. Someone might have watered the lawn, or there could be another reason for the wet ground."
+        },
+        {
+            premises: [
+                "All squares have four sides.",
+                "This shape has four sides."
+            ],
+            conclusion: "Therefore, this shape is a square.",
+            isValid: false,
+            explanation: "This is an invalid argument. While all squares have four sides, not all four-sided shapes are squares. Rectangles, rhombuses, and other quadrilaterals also have four sides."
+        },
+        {
+            premises: [
+                "All squares have four sides.",
+                "This shape has five sides."
+            ],
+            conclusion: "Therefore, this shape is not a square.",
+            isValid: true,
+            explanation: "This is a valid argument. If all squares have exactly four sides, and this shape has five sides, then it cannot be a square. This uses the logical rule of modus tollens (denying the consequent)."
+        }
+    ];
+    
+    // Argument Completion scenarios (Activity 2)
+    const completionScenarios = [
+        {
+            premises: [
+                "All elephants are big.",
+                "Dumbo is an elephant."
+            ],
+            conclusions: [
+                "Dumbo is big.",
+                "Dumbo might be big, but we can't be certain.",
+                "Dumbo is not big."
+            ],
+            correctIndex: 0,
+            explanation: "This conclusion must be true because all elephants are big (premise 1), and Dumbo is an elephant (premise 2). Therefore, Dumbo must be big. This is a valid deductive argument."
+        },
+        {
+            premises: [
+                "If it's sunny, we'll go to the park.",
+                "It's sunny."
+            ],
+            conclusions: [
+                "We might go to the park, but we can't be certain.",
+                "We'll go to the park.",
+                "We won't go to the park."
+            ],
+            correctIndex: 1,
+            explanation: "This conclusion must be true based on modus ponens (affirming the antecedent). If sunny weather means we go to the park (premise 1), and it is sunny (premise 2), then we must go to the park."
+        },
+        {
+            premises: [
+                "All triangles have three sides.",
+                "This shape is a triangle."
+            ],
+            conclusions: [
+                "This shape has four sides.",
+                "This shape might have three sides, but we can't be certain.",
+                "This shape has three sides."
+            ],
+            correctIndex: 2,
+            explanation: "This conclusion must be true because all triangles have three sides (premise 1), and this shape is a triangle (premise 2). Therefore, this shape must have three sides."
+        },
+        {
+            premises: [
+                "If it rains, the picnic will be canceled.",
+                "It is not raining."
+            ],
+            conclusions: [
+                "The picnic will definitely be canceled.",
+                "The picnic will definitely not be canceled.",
+                "We can't determine whether the picnic will be canceled based only on these premises."
+            ],
+            correctIndex: 2,
+            explanation: "We can't determine if the picnic will be canceled. The first premise tells us that rain leads to cancellation, but it doesn't tell us that rain is the ONLY reason for cancellation. There could be other reasons to cancel the picnic even if it's not raining."
+        }
+    ];
+    
+    // Invalid Argument Flaw scenarios (Activity 3)
+    const flawScenarios = [
+        {
+            premises: [
+                "If it's raining, the streets are wet.",
+                "The streets are wet."
+            ],
+            conclusion: "Therefore, it's raining.",
+            flawOptions: [
+                "The premises contradict each other.",
+                "The streets could be wet for other reasons (sprinklers, water truck, etc.).",
+                "The conclusion assumes facts not present in the premises."
+            ],
+            correctIndex: 1,
+            explanation: "This argument commits the fallacy of affirming the consequent. While rain causes wet streets, wet streets can have other causes. The streets could be wet because of sprinklers, a water truck, or other reasons."
+        },
+        {
+            premises: [
+                "All students in Mrs. Smith's class passed the test.",
+                "Jamie passed the test."
+            ],
+            conclusion: "Therefore, Jamie is in Mrs. Smith's class.",
+            flawOptions: [
+                "Jamie could be in a different class and still have passed the test.",
+                "We don't know if the test was difficult or easy.",
+                "The argument assumes all students take tests."
+            ],
+            correctIndex: 0,
+            explanation: "This argument commits the fallacy of affirming the consequent. While all students in Mrs. Smith's class passed the test, students from other classes could have passed it too. The fact that Jamie passed doesn't necessarily mean Jamie is in Mrs. Smith's class."
+        },
+        {
+            premises: [
+                "If I study hard, I will ace the exam.",
+                "I didn't ace the exam."
+            ],
+            conclusion: "Therefore, I didn't study hard.",
+            flawOptions: [
+                "The conclusion contradicts the premises.",
+                "Studying hard doesn't guarantee acing the exam.",
+                "This is actually a valid argument using modus tollens."
+            ],
+            correctIndex: 2,
+            explanation: "This is actually a valid argument using modus tollens (denying the consequent). If P implies Q, and Q is false, then P must be false. In this case, if studying hard leads to acing the exam, and I didn't ace the exam, then I must not have studied hard."
+        },
+        {
+            premises: [
+                "All dogs are mammals.",
+                "All mammals have fur."
+            ],
+            conclusion: "Therefore, all cats are mammals.",
+            flawOptions: [
+                "The conclusion involves cats, which aren't mentioned in the premises.",
+                "Not all mammals have fur (e.g., dolphins, whales).",
+                "The argument assumes all dogs have fur."
+            ],
+            correctIndex: 0,
+            explanation: "This argument introduces a completely new term (cats) in the conclusion that doesn't appear in the premises. We can't draw conclusions about cats based solely on premises about dogs and mammals."
+        }
+    ];
+    
+    let currentSortingIndex = 0;
+    let currentCompletionIndex = 0;
+    let currentFlawIndex = 0;
+    
+    // Navigation and activity initialization for Lesson 8
+    document.getElementById('lesson8-btn').addEventListener('click', function() {
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 8 content and activate button
+        document.getElementById('lesson8-content').classList.remove('hidden');
+        this.classList.add('active');
+    });
+    
+    document.getElementById('start-activity8').addEventListener('click', function() {
+        document.getElementById('introduction8').classList.add('hidden');
+        document.getElementById('activity81').classList.remove('hidden');
+        loadSortingScenario();
+    });
+    
+    // Activity 1: Argument Sorting
+    function loadSortingScenario() {
+        const scenario = sortingScenarios[currentSortingIndex];
+        
+        // Set premises and conclusion
+        document.getElementById('sorting-premise1').textContent = scenario.premises[0];
+        document.getElementById('sorting-premise2').textContent = scenario.premises[1];
+        document.getElementById('sorting-conclusion').textContent = scenario.conclusion;
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback81').textContent = '';
+        document.getElementById('explanation81').classList.add('hidden');
+        document.getElementById('next81').classList.add('hidden');
+    }
+    
+    document.getElementById('valid-btn').addEventListener('click', function() {
+        checkSortingAnswer(true);
+    });
+    
+    document.getElementById('invalid-btn').addEventListener('click', function() {
+        checkSortingAnswer(false);
+    });
+    
+    function checkSortingAnswer(isValidAnswer) {
+        const scenario = sortingScenarios[currentSortingIndex];
+        const feedback = document.getElementById('feedback81');
+        
+        if (isValidAnswer === scenario.isValid) {
+            feedback.textContent = "Correct! You've correctly identified whether this argument is valid or invalid.";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Think about whether the conclusion necessarily follows from the premises.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text81').textContent = scenario.explanation;
+        document.getElementById('explanation81').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next81').classList.remove('hidden');
+    }
+    
+    document.getElementById('next81').addEventListener('click', function() {
+        currentSortingIndex++;
+        
+        if (currentSortingIndex < sortingScenarios.length) {
+            loadSortingScenario();
+        } else {
+            document.getElementById('activity81').classList.add('hidden');
+            document.getElementById('activity82').classList.remove('hidden');
+            loadCompletionScenario();
+        }
+    });
+    
+    // Activity 2: Argument Completion
+    function loadCompletionScenario() {
+        const scenario = completionScenarios[currentCompletionIndex];
+        
+        // Set premises
+        document.getElementById('completion-premise1').textContent = scenario.premises[0];
+        document.getElementById('completion-premise2').textContent = scenario.premises[1];
+        
+        // Set conclusion options
+        document.getElementById('conclusion-label1').textContent = scenario.conclusions[0];
+        document.getElementById('conclusion-label2').textContent = scenario.conclusions[1];
+        document.getElementById('conclusion-label3').textContent = scenario.conclusions[2];
+        
+        // Reset radio buttons
+        const radioButtons = document.querySelectorAll('input[name="completion-conclusion"]');
+        radioButtons.forEach(radio => {
+            radio.checked = false;
+        });
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback82').textContent = '';
+        document.getElementById('completion-explanation').classList.add('hidden');
+        document.getElementById('next82').classList.add('hidden');
+    }
+    
+    document.getElementById('check-completion').addEventListener('click', function() {
+        const selectedConclusion = document.querySelector('input[name="completion-conclusion"]:checked');
+        
+        if (!selectedConclusion) {
+            alert("Please select a conclusion before checking!");
+            return;
+        }
+        
+        const scenario = completionScenarios[currentCompletionIndex];
+        const selectedIndex = parseInt(selectedConclusion.id.replace('conclusion-option', '')) - 1;
+        const feedback = document.getElementById('feedback82');
+        
+        if (selectedIndex === scenario.correctIndex) {
+            feedback.textContent = "Correct! That's the right conclusion for this argument.";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Think carefully about what must be true given the premises.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text82').textContent = scenario.explanation;
+        document.getElementById('completion-explanation').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next82').classList.remove('hidden');
+    });
+    
+    document.getElementById('next82').addEventListener('click', function() {
+        currentCompletionIndex++;
+        
+        if (currentCompletionIndex < completionScenarios.length) {
+            loadCompletionScenario();
+        } else {
+            document.getElementById('activity82').classList.add('hidden');
+            document.getElementById('activity83').classList.remove('hidden');
+            loadFlawScenario();
+        }
+    });
+    
+    // Activity 3: Spotting the Flaw
+    function loadFlawScenario() {
+        const scenario = flawScenarios[currentFlawIndex];
+        
+        // Set premises and conclusion
+        document.getElementById('flaw-premise1').textContent = scenario.premises[0];
+        document.getElementById('flaw-premise2').textContent = scenario.premises[1];
+        document.getElementById('flaw-conclusion').textContent = scenario.conclusion;
+        
+        // Set flaw options
+        document.getElementById('flaw-label1').textContent = scenario.flawOptions[0];
+        document.getElementById('flaw-label2').textContent = scenario.flawOptions[1];
+        document.getElementById('flaw-label3').textContent = scenario.flawOptions[2];
+        
+        // Reset radio buttons
+        const radioButtons = document.querySelectorAll('input[name="flaw-reason"]');
+        radioButtons.forEach(radio => {
+            radio.checked = false;
+        });
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback83').textContent = '';
+        document.getElementById('flaw-explanation').classList.add('hidden');
+        document.getElementById('next83').classList.add('hidden');
+    }
+    
+    document.getElementById('check-flaw').addEventListener('click', function() {
+        const selectedOption = document.querySelector('input[name="flaw-reason"]:checked');
+        
+        if (!selectedOption) {
+            alert("Please select an option before checking!");
+            return;
+        }
+        
+        const scenario = flawScenarios[currentFlawIndex];
+        const selectedIndex = parseInt(selectedOption.id.replace('flaw-option', '')) - 1;
+        const feedback = document.getElementById('feedback83');
+        
+        if (selectedIndex === scenario.correctIndex) {
+            feedback.textContent = "Correct! You've correctly identified the flaw in this argument.";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Think carefully about why the conclusion doesn't necessarily follow from the premises.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text83').textContent = scenario.explanation;
+        document.getElementById('flaw-explanation').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next83').classList.remove('hidden');
+    });
+    
+    document.getElementById('next83').addEventListener('click', function() {
+        currentFlawIndex++;
+        
+        if (currentFlawIndex < flawScenarios.length) {
+            loadFlawScenario();
+        } else {
+            document.getElementById('activity83').classList.add('hidden');
+            document.getElementById('completion8').classList.remove('hidden');
+        }
+    });
+    
+    document.getElementById('restart-final8').addEventListener('click', function() {
+        resetLesson8();
+        document.getElementById('completion8').classList.add('hidden');
+        document.getElementById('introduction8').classList.remove('hidden');
+    });
+    
+    document.getElementById('back-to-lesson7').addEventListener('click', function() {
+        document.getElementById('lesson8-content').classList.add('hidden');
+        document.getElementById('lesson7-content').classList.remove('hidden');
+        document.getElementById('lesson8-btn').classList.remove('active');
+        document.getElementById('lesson7-btn').classList.add('active');
+    });
+    
+    function resetLesson8() {
+        currentSortingIndex = 0;
+        currentCompletionIndex = 0;
+        currentFlawIndex = 0;
+        
+        // Hide all activities
+        document.querySelectorAll('#activity81, #activity82, #activity83, #completion8').forEach(el => {
+            el.classList.add('hidden');
+        });
+        
+        // Reset Activity 1, 2, and 3
+        document.getElementById('feedback81').textContent = '';
+        document.getElementById('explanation81').classList.add('hidden');
+        document.getElementById('next81').classList.add('hidden');
+        
+        document.getElementById('feedback82').textContent = '';
+        document.getElementById('completion-explanation').classList.add('hidden');
+        document.getElementById('next82').classList.add('hidden');
+        
+        document.getElementById('feedback83').textContent = '';
+        document.getElementById('flaw-explanation').classList.add('hidden');
+        document.getElementById('next83').classList.add('hidden');
     }
 });

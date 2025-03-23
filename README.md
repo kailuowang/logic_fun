@@ -22,9 +22,15 @@ Introduces conditional statements ("IF-THEN") through a story about a magical wi
 ### Lesson 6: The Detective of If-Thenville
 Explores logical reasoning with conditional statements through a detective story, teaching children to draw valid conclusions from IF-THEN statements.
 
+### Lesson 7: The Case of the Missing Cookies
+Introduces logical arguments, premises, and conclusions through a mystery story about missing cookies and different suspects.
+
+### Lesson 8: The Argument Clinic
+Teaches the difference between valid and invalid arguments through a story about a special clinic where doctors examine and diagnose arguments based on their logical structure.
+
 ## Features
 
-- Engaging stories about Trueland, Falseville, the Magic Mirror, the Two-Ingredient Potion, the Choice Garden, the Magical Wishing Well, and the Detective of If-Thenville
+- Engaging stories about Trueland, Falseville, the Magic Mirror, the Two-Ingredient Potion, the Choice Garden, the Magical Wishing Well, the Detective of If-Thenville, the Case of the Missing Cookies, and the Argument Clinic
 - Interactive activities:
   - Lesson 1:
     - Activity 1: Statement sorting (identifying statements vs. non-statements)
@@ -50,6 +56,14 @@ Explores logical reasoning with conditional statements through a detective story
     - Activity 1: Detective Clues (drawing conclusions from conditional statements and evidence)
     - Activity 2: Conditional Consequences (exploring the chain of events following from conditions)
     - Activity 3: Breaking the Promise (determining when conditional statements are respected or broken)
+  - Lesson 7:
+    - Activity 1: Building Arguments (practicing constructing logical arguments with premises and conclusions)
+    - Activity 2: Story Argument Identification (identifying premises and conclusions in short stories)
+    - Activity 3: Create Your Own Mystery (creating custom mysteries with logical arguments)
+  - Lesson 8:
+    - Activity 1: Argument Sorting (classifying arguments as valid or invalid)
+    - Activity 2: Completing Valid Arguments (selecting valid conclusions from given premises)
+    - Activity 3: Spotting the Flaw (identifying logical flaws in invalid arguments)
 
 ## How to Use
 

@@ -205,6 +205,8 @@
         <button id="lesson4-btn" class="lesson-btn">Lesson 4: The Choice Garden</button>
         <button id="lesson5-btn" class="lesson-btn">Lesson 5: The Wishing Well</button>
         <button id="lesson6-btn" class="lesson-btn">Lesson 6: The Detective</button>
+        <button id="lesson7-btn" class="lesson-btn">Lesson 7: Missing Cookies</button>
+        <button id="lesson8-btn" class="lesson-btn">Lesson 8: The Argument Clinic</button>
     </div>
     
     <!-- Lesson 1 Content -->
@@ -1172,9 +1174,376 @@
             <div style="text-align: center;">
                 <button id="restart-final6" class="next-btn">Restart Lesson</button>
                 <button id="back-to-lesson5" class="next-btn">Back to Lesson 5</button>
+                <button id="next-to-lesson7" class="next-btn">Go to Lesson 7</button>
             </div>
         </div>
     </div> <!-- End of Lesson 6 content -->
+    
+    <!-- Lesson 7 Content -->
+    <div id="lesson7-content" class="hidden">
+        <h2>Lesson 7: The Case of the Missing Cookies</h2>
+        
+        <div id="introduction7" class="story">
+            <h2>The Case of the Missing Cookies</h2>
+            
+            <p>"Alex, our logic expert, was visiting a friend's house. Suddenly, there was a cry: 'The cookies are gone!' A plate of freshly baked cookies had mysteriously disappeared from the kitchen table. It was time to put on a detective hat and build an <em>argument</em> to solve the mystery!</p>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: inline-block; background-color: #b87333; width: 120px; height: 80px; border-radius: 10px; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 20px; background-color: #b87333; border-radius: 10px 10px 0 0;"></div>
+                    <div style="position: absolute; top: 20px; left: 15px; width: 20px; height: 20px; background-color: #4b2f18; border-radius: 50%;"></div>
+                    <div style="position: absolute; top: 20px; right: 15px; width: 20px; height: 20px; background-color: #4b2f18; border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 60px; height: 10px; background-color: #4b2f18; border-radius: 5px;"></div>
+                    <div style="position: absolute; bottom: -15px; width: 100%; text-align: center; font-size: 12px; color: #333; font-weight: bold;">EMPTY COOKIE JAR</div>
+                </div>
+            </div>
+            
+            <p>Alex knew that an argument is like building a case. You start with <em>premises</em> – these are statements that you believe are true, like clues. Then, based on those premises, you reach a <em>conclusion</em> – what you think happened, based on the clues.</p>
+            
+            <p>The first person Alex interviewed was the family dog, Sparky (using a bit of imagination, of course!). Alex gathered these premises:</p>
+            
+            <ul>
+                <li><strong>Premise 1:</strong> Sparky loves cookies. (Everyone knew this was true!)</li>
+                <li><strong>Premise 2:</strong> Sparky was in the kitchen. (The mom saw him there earlier.)</li>
+                <li><strong>Premise 3:</strong> If Sparky is in the kitchen and there are cookies, Sparky will try to eat the cookies.</li>
+            </ul>
+            
+            <p>Based on these premises, Alex formed a <em>conclusion</em>:</p>
+            
+            <ul>
+                <li><strong>Conclusion:</strong> Sparky probably ate the cookies!</li>
+            </ul>
+            
+            <p>Alex explained: 'We know Sparky loves cookies, and he was in the kitchen, and he always goes after a snack within reach. So, putting it all together, it's likely he's the culprit!'</p>
+            
+            <p>Then, Alex talked to the little sister, Lily. Lily gave these premises:</p>
+            
+            <ul>
+                <li><strong>Premise 1:</strong> Lily said she saw a bluebird fly in through the open window.</li>
+                <li><strong>Premise 2:</strong> Bluebirds don't eat chocolate chip cookies.</li>
+            </ul>
+            
+            <p>From these premises, Lily formed a conclusion:</p>
+            
+            <ul>
+                <li><strong>Conclusion:</strong> The bluebird did <em>not</em> eat the cookies.</li>
+            </ul>
+            
+            <p>Finally, Alex talked to the older brother, Tom.</p>
+            
+            <ul>
+                <li><strong>Premise 1:</strong> If Tom ate the cookies, he would have crumbs on his shirt.</li>
+                <li><strong>Premise 2:</strong> Tom does not have crumbs on his shirt.</li>
+                <li><strong>Conclusion:</strong> Tom did not eat the cookies.</li>
+            </ul>
+            
+            <p>Alex learned that an argument is like a chain of reasoning. You start with your premises – the things you believe are true. Then, you use those premises to reach a conclusion – a statement that you believe is true <em>because</em> of the premises. A good argument makes the conclusion seem likely, based on the premises. A weak argument has premises that don't really support the conclusion."</p>
+            
+            <button id="start-activity7" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity71" class="activity hidden">
+            <h2>Activity 1: Building Arguments</h2>
+            <p>Let's practice building logical arguments! You'll be given some premises, and you need to select the best conclusion that follows from them.</p>
+            
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <h3>Premises:</h3>
+                <div id="premises-container" style="margin-bottom: 20px;">
+                    <div id="premise1" class="premise" style="background-color: #e6f7ff; padding: 10px; border-radius: 5px; margin-bottom: 10px;"></div>
+                    <div id="premise2" class="premise" style="background-color: #e6f7ff; padding: 10px; border-radius: 5px; margin-bottom: 10px;"></div>
+                    <div id="premise3" class="premise" style="background-color: #e6f7ff; padding: 10px; border-radius: 5px; display: none;"></div>
+                </div>
+                
+                <h3>What conclusion can we draw?</h3>
+                <div id="conclusion-options-container" style="margin-top: 15px;">
+                    <div style="margin-bottom: 10px;">
+                        <input type="radio" id="conclusion-option1" name="argument-conclusion" value="option1">
+                        <label for="conclusion-option1" id="conclusion-label1"></label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="radio" id="conclusion-option2" name="argument-conclusion" value="option2">
+                        <label for="conclusion-option2" id="conclusion-label2"></label>
+                    </div>
+                    <div>
+                        <input type="radio" id="conclusion-option3" name="argument-conclusion" value="option3">
+                        <label for="conclusion-option3" id="conclusion-label3"></label>
+                    </div>
+                </div>
+                
+                <button id="check-argument" class="next-btn" style="margin-top: 15px;">Check Argument</button>
+            </div>
+            
+            <div id="feedback71" class="feedback"></div>
+            
+            <div id="argument-explanation" class="hidden" style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                <h3>Explanation:</h3>
+                <p id="argument-explanation-text"></p>
+            </div>
+            
+            <button id="next71" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity72" class="activity hidden">
+            <h2>Activity 2: Story Argument Identification</h2>
+            <p>Read these short stories and identify the premises and conclusion in each argument.</p>
+            
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <div id="story-container" style="background-color: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <p id="story-text" style="font-size: 16px;"></p>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h3>Identify the Premises and Conclusion:</h3>
+                    <p>Drag each sentence to where it belongs in the argument:</p>
+                    
+                    <div style="display: flex; margin-top: 15px; gap: 20px;">
+                        <div style="flex: 1;">
+                            <h4>Sentences:</h4>
+                            <div id="sentences-container" style="border: 1px dashed #ccc; min-height: 150px; padding: 10px; background-color: #fff;">
+                                <div class="sentence" id="sentence1" draggable="true" style="background-color: #e6f7ff; padding: 10px; margin-bottom: 10px; border-radius: 5px; cursor: move;"></div>
+                                <div class="sentence" id="sentence2" draggable="true" style="background-color: #e6f7ff; padding: 10px; margin-bottom: 10px; border-radius: 5px; cursor: move;"></div>
+                                <div class="sentence" id="sentence3" draggable="true" style="background-color: #e6f7ff; padding: 10px; border-radius: 5px; cursor: move;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="flex: 1;">
+                            <h4>Premises:</h4>
+                            <div id="premises-drop" style="border: 1px dashed #4169e1; min-height: 100px; padding: 10px; background-color: #f0f8ff; margin-bottom: 10px;"></div>
+                            
+                            <h4>Conclusion:</h4>
+                            <div id="conclusion-drop" style="border: 1px dashed #4169e1; min-height: 50px; padding: 10px; background-color: #f0f8ff;"></div>
+                        </div>
+                    </div>
+                    
+                    <button id="check-identification" class="next-btn" style="margin-top: 15px;">Check</button>
+                </div>
+            </div>
+            
+            <div id="feedback72" class="feedback"></div>
+            
+            <button id="next72" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity73" class="activity hidden">
+            <h2>Activity 3: Create Your Own Mystery</h2>
+            <p>Now it's your turn to create a mystery and a logical argument to solve it!</p>
+            
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <h3>Choose a Mystery:</h3>
+                <select id="mystery-scenario" style="width: 100%; padding: 10px; margin-bottom: 20px; font-size: 16px;">
+                    <option value="toy">The Case of the Missing Toy</option>
+                    <option value="vase">The Case of the Broken Vase</option>
+                    <option value="juice">The Case of the Spilled Juice</option>
+                    <option value="custom">Create Your Own Mystery...</option>
+                </select>
+                
+                <div id="custom-mystery" class="hidden" style="margin-bottom: 20px;">
+                    <label for="custom-mystery-input">Enter your mystery:</label>
+                    <input type="text" id="custom-mystery-input" style="width: 100%; padding: 10px; margin-top: 5px;" placeholder="e.g., The Case of the...">
+                </div>
+                
+                <h3>Build Your Argument:</h3>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="premise-input1">Premise 1:</label>
+                    <input type="text" id="premise-input1" style="width: 100%; padding: 10px; margin-top: 5px;" placeholder="Enter your first premise...">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="premise-input2">Premise 2:</label>
+                    <input type="text" id="premise-input2" style="width: 100%; padding: 10px; margin-top: 5px;" placeholder="Enter your second premise...">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label for="conclusion-input">Conclusion:</label>
+                    <input type="text" id="conclusion-input" style="width: 100%; padding: 10px; margin-top: 5px;" placeholder="Enter your conclusion...">
+                </div>
+                
+                <button id="check-mystery" class="next-btn" style="margin-top: 15px;">Submit Mystery</button>
+            </div>
+            
+            <div id="mystery-feedback" class="hidden" style="background-color: #f0fff0; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <h3>Your Mystery Case:</h3>
+                <p id="mystery-title" style="font-weight: bold; font-size: 18px;"></p>
+                
+                <h4>Your Argument:</h4>
+                <ul>
+                    <li><strong>Premise 1:</strong> <span id="mystery-premise1"></span></li>
+                    <li><strong>Premise 2:</strong> <span id="mystery-premise2"></span></li>
+                    <li><strong>Conclusion:</strong> <span id="mystery-conclusion"></span></li>
+                </ul>
+                
+                <p id="mystery-evaluation"></p>
+            </div>
+            
+            <div id="feedback73" class="feedback"></div>
+            
+            <button id="complete-lesson7" class="next-btn hidden" style="margin-top: 20px;">Complete Lesson</button>
+        </div>
+        
+        <div id="completion7" class="hidden">
+            <div class="celebration">
+                Congratulations! You've completed Lesson 7!
+            </div>
+            <p style="text-align: center;">You now understand how to build logical arguments using premises to reach conclusions.</p>
+            <div style="text-align: center;">
+                <button id="restart-final7" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson6" class="next-btn">Back to Lesson 6</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 7 content -->
+
+    <!-- Lesson 8 Content -->
+    <div id="lesson8-content" class="hidden">
+        <h2>Lesson 8: The Argument Clinic</h2>
+        
+        <div id="introduction8" class="story">
+            <h2>The Argument Clinic</h2>
+            <p>"Alex, after solving the Case of the Missing Cookies, decided to visit a very special place: The Argument Clinic! This clinic wasn't for people who were arguing; it was for <em>arguments</em> themselves. Doctors Goodreason and Badreason helped people make sure their arguments were healthy and strong.</p>
+            
+            <p>Dr. Goodreason specialized in <em>valid</em> arguments. A valid argument is like a strong bridge: if the premises are true, then the conclusion <em>must</em> be true. The structure is solid.</p>
+            
+            <p>Dr. Badreason, on the other hand, dealt with <em>invalid</em> arguments. An invalid argument is like a shaky bridge: even if the premises are true, the conclusion might <em>not</em> be true. The structure is flawed.</p>
+            
+            <p>The first patient was a little girl named Mia. Her argument was:</p>
+            <ul>
+                <li><strong>Premise 1:</strong> All cats are mammals.</li>
+                <li><strong>Premise 2:</strong> My pet, Whiskers, is a cat.</li>
+                <li><strong>Conclusion:</strong> Therefore, Whiskers is a mammal.</li>
+            </ul>
+            
+            <p>Dr. Goodreason examined the argument. 'This is a <em>valid</em> argument!' she declared. 'If the premises are true (and they are!), then the conclusion <em>has</em> to be true. There's no way for Whiskers to be a cat and <em>not</em> be a mammal.'</p>
+            
+            <p>The next patient was a boy named Sam. His argument was:</p>
+            <ul>
+                <li><strong>Premise 1:</strong> All dogs have tails.</li>
+                <li><strong>Premise 2:</strong> My pet, Fido, has a tail.</li>
+                <li><strong>Conclusion:</strong> Therefore, Fido is a dog.</li>
+            </ul>
+            
+            <p>Dr. Badreason took a look. 'This is an <em>invalid</em> argument!' he announced. 'Even if the premises are true, the conclusion might not be true. Fido could be a cat, a fox, or many other animals with tails! The premises don't <em>guarantee</em> the conclusion.'</p>
+            
+            <p>Another patient came:</p>
+            <ul>
+                <li><strong>Premise 1:</strong> If it snow, school is closed.</li>
+                <li><strong>Premise 2:</strong> School is closed.</li>
+                <li><strong>Conclusion:</strong> Therefore it snow.</li>
+            </ul>
+            
+            <p>Dr. Badreason took a look. 'This is an <em>invalid</em> argument!' he announced. 'Even if the premises are true, the conclusion might not be true. It could be a holiday!'</p>
+            
+            <p>Alex learned a very important lesson: it's not enough for an argument to have true premises. The <em>structure</em> of the argument matters. A valid argument's structure <em>guarantees</em> that if the premises are true, the conclusion <em>must</em> be true. An invalid argument's structure doesn't offer that guarantee, even with true premises."</p>
+            
+            <button id="start-activity8" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity81" class="activity hidden">
+            <h3>Activity 1: Argument Sorting</h3>
+            <p>Let's sort arguments based on their validity. A valid argument is like a "Good Bridge" - if the premises are true, the conclusion must be true. An invalid argument is like a "Shaky Bridge" - the conclusion might not follow even if the premises are true.</p>
+            
+            <div class="argument-card" id="argument-card">
+                <h4>Argument:</h4>
+                <p id="argument-text"></p>
+                <div class="premise1"><strong>Premise 1:</strong> <span id="sorting-premise1"></span></div>
+                <div class="premise2"><strong>Premise 2:</strong> <span id="sorting-premise2"></span></div>
+                <div class="conclusion"><strong>Conclusion:</strong> <span id="sorting-conclusion"></span></div>
+            </div>
+            
+            <div class="buttons">
+                <button id="valid-btn" class="true-btn">Valid (Good Bridge)</button>
+                <button id="invalid-btn" class="false-btn">Invalid (Shaky Bridge)</button>
+            </div>
+            
+            <div id="feedback81"></div>
+            <div id="explanation81" class="hidden">
+                <p id="explanation-text81"></p>
+            </div>
+            
+            <button id="next81" class="next-btn hidden">Next Argument</button>
+        </div>
+        
+        <div id="activity82" class="activity hidden">
+            <h3>Activity 2: Completing Valid Arguments</h3>
+            <p>Complete these arguments by choosing the conclusion that must be true if the premises are true.</p>
+            
+            <div class="argument-card">
+                <div class="premise1"><strong>Premise 1:</strong> <span id="completion-premise1"></span></div>
+                <div class="premise2"><strong>Premise 2:</strong> <span id="completion-premise2"></span></div>
+                <div class="conclusion"><strong>Therefore:</strong> 
+                    <div class="conclusion-options">
+                        <div>
+                            <input type="radio" id="conclusion-option1" name="completion-conclusion">
+                            <label for="conclusion-option1" id="conclusion-label1"></label>
+                        </div>
+                        <div>
+                            <input type="radio" id="conclusion-option2" name="completion-conclusion">
+                            <label for="conclusion-option2" id="conclusion-label2"></label>
+                        </div>
+                        <div>
+                            <input type="radio" id="conclusion-option3" name="completion-conclusion">
+                            <label for="conclusion-option3" id="conclusion-label3"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="check-completion" class="next-btn">Check Answer</button>
+            
+            <div id="feedback82"></div>
+            <div id="completion-explanation" class="hidden">
+                <p id="explanation-text82"></p>
+            </div>
+            
+            <button id="next82" class="next-btn hidden">Next Argument</button>
+        </div>
+        
+        <div id="activity83" class="activity hidden">
+            <h3>Activity 3: Spotting the Flaw</h3>
+            <p>Each of these arguments is invalid. Can you spot why the conclusion doesn't necessarily follow from the premises?</p>
+            
+            <div class="argument-card">
+                <div class="premise1"><strong>Premise 1:</strong> <span id="flaw-premise1"></span></div>
+                <div class="premise2"><strong>Premise 2:</strong> <span id="flaw-premise2"></span></div>
+                <div class="conclusion"><strong>Conclusion:</strong> <span id="flaw-conclusion"></span></div>
+            </div>
+            
+            <p><strong>What's wrong with this argument?</strong></p>
+            <div class="flaw-options">
+                <div>
+                    <input type="radio" id="flaw-option1" name="flaw-reason">
+                    <label for="flaw-option1" id="flaw-label1"></label>
+                </div>
+                <div>
+                    <input type="radio" id="flaw-option2" name="flaw-reason">
+                    <label for="flaw-option2" id="flaw-label2"></label>
+                </div>
+                <div>
+                    <input type="radio" id="flaw-option3" name="flaw-reason">
+                    <label for="flaw-option3" id="flaw-label3"></label>
+                </div>
+            </div>
+            
+            <button id="check-flaw" class="next-btn">Check Answer</button>
+            
+            <div id="feedback83"></div>
+            <div id="flaw-explanation" class="hidden">
+                <p id="explanation-text83"></p>
+            </div>
+            
+            <button id="next83" class="next-btn hidden">Next Argument</button>
+        </div>
+        
+        <div id="completion8" class="activity hidden">
+            <h2>Congratulations!</h2>
+            <p>You've completed Lesson 8: The Argument Clinic!</p>
+            <p>You now understand the difference between valid and invalid arguments. A valid argument guarantees that if the premises are true, the conclusion must be true. An invalid argument doesn't provide that guarantee.</p>
+            
+            <div class="buttons">
+                <button id="restart-final8" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson7" class="next-btn">Back to Lesson 7</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 8 content -->
     
     <script src="script.js"></script>
 </body>
