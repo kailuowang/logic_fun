@@ -31,9 +31,12 @@ Teaches the difference between valid and invalid arguments through a story about
 ### Lesson 9: The Fallacy Fair
 Introduces common logical fallacies through a story about a fair where vendors showcase flawed reasoning patterns, focusing on hasty generalizations and appeals to emotion.
 
+### Lesson 10: The Logic Olympics
+Serves as a capstone experience that reviews and applies all previously learned logic concepts through a series of Olympic-style events and challenges.
+
 ## Features
 
-- Engaging stories about Trueland, Falseville, the Magic Mirror, the Two-Ingredient Potion, the Choice Garden, the Magical Wishing Well, the Detective of If-Thenville, the Case of the Missing Cookies, the Argument Clinic, and the Fallacy Fair
+- Engaging stories about Trueland, Falseville, the Magic Mirror, the Two-Ingredient Potion, the Choice Garden, the Magical Wishing Well, the Detective of If-Thenville, the Case of the Missing Cookies, the Argument Clinic, the Fallacy Fair, and the Logic Olympics
 - Interactive activities:
   - Lesson 1:
     - Activity 1: Statement sorting (identifying statements vs. non-statements)
@@ -71,6 +74,14 @@ Introduces common logical fallacies through a story about a fair where vendors s
     - Activity 1: Fallacy Identification (recognizing hasty generalizations and appeals to emotion)
     - Activity 2: Fallacy Warning Signs (creating informative posters about logical fallacies)
     - Activity 3: Fallacy Role-Play (practicing using and identifying fallacies in conversations)
+  - Lesson 10:
+    - Event 1: True/False Sprint (rapid identification of statement truth values)
+    - Event 2: Negation Relay (creating negations of various statements)
+    - Event 3: AND/OR Obstacle Course (selecting objects based on logical conditions)
+    - Event 4: If-Then Challenge (analyzing consequences of conditional statements)
+    - Event 5: Argument Clinic Diagnosis (evaluating argument validity and fallacies)
+    - Event 6: Logic Grid Puzzle (solving a deductive reasoning puzzle)
+    - Event 7: Create-Your-Own Logic Puzzle (designing an original logic challenge)
 
 ## How to Use
 

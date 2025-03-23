@@ -2928,4 +2928,715 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('next93').classList.add('hidden');
         document.getElementById('argument-input-container').classList.add('hidden');
     }
+    
+    //------------------ LESSON 10 ------------------//
+    
+    // Event 1: True/False Sprint scenarios
+    const sprintStatements = [
+        {
+            statement: "All squares are rectangles.",
+            isTrue: true,
+            explanation: "This is true because a square is a special type of rectangle where all sides are equal in length."
+        },
+        {
+            statement: "All birds can fly.",
+            isTrue: false,
+            explanation: "This is false because there are birds that cannot fly, such as penguins, ostriches, and emus."
+        },
+        {
+            statement: "If it is raining, then the ground is wet.",
+            isTrue: true,
+            explanation: "This is generally true as rain causes the ground to get wet. (It could be false in unusual circumstances, like if there's a roof over the ground.)"
+        },
+        {
+            statement: "If the ground is wet, then it is raining.",
+            isTrue: false,
+            explanation: "This is false because the ground could be wet for other reasons, such as someone watering the lawn or a water spill."
+        },
+        {
+            statement: "2 + 2 = 5",
+            isTrue: false,
+            explanation: "This is clearly false. 2 + 2 = 4."
+        }
+    ];
+    
+    // Event 2: Negation Relay scenarios
+    const negationStatements = [
+        {
+            statement: "All cats are black.",
+            negation: "Not all cats are black.",
+            explanation: "The negation of 'All X are Y' is 'Not all X are Y' or 'Some X are not Y'. It means there exists at least one cat that is not black."
+        },
+        {
+            statement: "No dogs can swim.",
+            negation: "Some dogs can swim.",
+            explanation: "The negation of 'No X are Y' is 'Some X are Y'. It means there exists at least one dog that can swim."
+        },
+        {
+            statement: "It is raining outside.",
+            negation: "It is not raining outside.",
+            explanation: "For simple statements, we can negate by adding 'not' or using a word that means the opposite."
+        },
+        {
+            statement: "The book is either red or blue.",
+            negation: "The book is neither red nor blue.",
+            explanation: "The negation of 'X or Y' is 'not X and not Y', which means 'neither X nor Y'."
+        },
+        {
+            statement: "If you study, then you will pass the test.",
+            negation: "You study, but you do not pass the test.",
+            explanation: "The negation of 'If X, then Y' is 'X and not Y'. This means the only way to break the promise 'If you study, then you will pass the test' is to study but not pass."
+        }
+    ];
+    
+    // Event 3: AND/OR Obstacle Course scenarios
+    const logicObjects = [
+        { shape: "circle", color: "red", size: "large", texture: "smooth" },
+        { shape: "circle", color: "blue", size: "small", texture: "rough" },
+        { shape: "square", color: "red", size: "small", texture: "smooth" },
+        { shape: "square", color: "blue", size: "large", texture: "rough" }
+    ];
+    
+    const logicConditions = [
+        {
+            condition: "Find an object that is red AND large.",
+            correctIndices: [0],
+            explanation: "For AND conditions, an object must satisfy BOTH criteria. Only the red large circle (Object 1) meets both requirements."
+        },
+        {
+            condition: "Find an object that is blue OR square.",
+            correctIndices: [1, 2, 3],
+            explanation: "For OR conditions, an object must satisfy EITHER criterion (or both). The blue small circle (Object 2), the red small square (Object 3), and the blue large square (Object 4) all meet at least one requirement."
+        },
+        {
+            condition: "Find an object that is (small AND smooth) OR (large AND rough).",
+            correctIndices: [2, 3],
+            explanation: "This complex condition has two parts joined by OR. An object must either be both small AND smooth, or it must be both large AND rough. The red small smooth square (Object 3) meets the first part, and the blue large rough square (Object 4) meets the second part."
+        },
+        {
+            condition: "Find an object that is blue AND square AND large.",
+            correctIndices: [3],
+            explanation: "For multiple AND conditions, an object must satisfy ALL criteria. Only the blue large rough square (Object 4) meets all three requirements."
+        }
+    ];
+    
+    // Event 4: If-Then Challenge scenarios
+    const conditionalScenarios = [
+        {
+            statement: "If it is sunny, then the picnic will happen.",
+            scenario: "It is sunny today.",
+            question: "Will the picnic happen?",
+            answer: true,
+            explanation: "When the 'if' part (antecedent) is true, and we have an if-then statement, the 'then' part (consequent) must also be true. This is modus ponens."
+        },
+        {
+            statement: "If it rains, then the soccer game will be canceled.",
+            scenario: "The soccer game was not canceled.",
+            question: "Did it rain?",
+            answer: false,
+            explanation: "When the 'then' part (consequent) is false, the 'if' part (antecedent) must also be false. This is modus tollens. If it had rained, the game would have been canceled."
+        },
+        {
+            statement: "If you do your homework, then you can play video games.",
+            scenario: "You did not do your homework.",
+            question: "Can you play video games?",
+            answer: false,
+            explanation: "If the 'if' part (antecedent) is false, and we have an if-then statement, then the promise doesn't apply. However, in this scenario, the condition for playing video games hasn't been met, so you cannot play."
+        },
+        {
+            statement: "If the alarm rings, then there is a fire.",
+            scenario: "There is a fire.",
+            question: "Did the alarm ring?",
+            answer: false,
+            explanation: "When the 'then' part (consequent) is true, we cannot determine whether the 'if' part (antecedent) is true or false. The fire might have started without triggering the alarm yet."
+        }
+    ];
+    
+    // Event 5: Argument Clinic Diagnosis scenarios
+    const diagnosticArguments = [
+        {
+            argument: "All mammals have hair. Whales are mammals. Therefore, whales have hair.",
+            diagnosis: "valid",
+            explanation: "This is a valid argument. The conclusion follows necessarily from the premises. If all mammals have hair (premise 1), and whales are mammals (premise 2), then whales must have hair."
+        },
+        {
+            argument: "All dogs have four legs. My pet has four legs. Therefore, my pet is a dog.",
+            diagnosis: "invalid",
+            explanation: "This is an invalid argument. It commits the fallacy of affirming the consequent. While all dogs have four legs, not all four-legged animals are dogs. Your pet could be a cat, a rabbit, or another four-legged animal."
+        },
+        {
+            argument: "Jane ate at that restaurant once and got sick. Therefore, that restaurant always makes people sick.",
+            diagnosis: "hasty",
+            explanation: "This argument contains a hasty generalization. It draws a broad conclusion about the restaurant making people sick based on a single instance of Jane getting sick. There could have been many other reasons Jane got sick."
+        },
+        {
+            argument: "You should agree with my argument because if you don't, I'll feel very sad and disappointed. Don't you care about my feelings?",
+            diagnosis: "emotion",
+            explanation: "This is an appeal to emotion. The argument tries to persuade by making you feel guilty about the speaker's feelings rather than providing logical reasons to agree."
+        },
+        {
+            argument: "If it snows, the schools close. The schools are closed today. Therefore, it snowed.",
+            diagnosis: "invalid",
+            explanation: "This is an invalid argument. It commits the fallacy of affirming the consequent. The schools might be closed for other reasons, such as a holiday, a power outage, or a teacher training day."
+        }
+    ];
+    
+    // Event 6: Logic Grid Puzzle solution
+    const puzzleSolution = {
+        alex: { pet: "dog", color: "blue" },
+        bella: { pet: "fish", color: "green" },
+        carlos: { pet: "bird", color: "red" },
+        diana: { pet: "cat", color: "yellow" }
+    };
+    
+    let currentSprintIndex = 0;
+    let currentNegationIndex = 0;
+    let currentLogicConditionIndex = 0;
+    let currentConditionalIndex = 0;
+    let currentDiagnosticIndex = 0;
+    let selectedObjects = [];
+    
+    // Navigation and activity initialization for Lesson 10
+    document.getElementById('lesson10-btn').addEventListener('click', function() {
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 10 content and activate button
+        document.getElementById('lesson10-content').classList.remove('hidden');
+        this.classList.add('active');
+    });
+    
+    document.getElementById('start-activity10').addEventListener('click', function() {
+        document.getElementById('introduction10').classList.add('hidden');
+        document.getElementById('activity101').classList.remove('hidden');
+        loadSprintStatement();
+    });
+    
+    // Event 1: True/False Sprint
+    function loadSprintStatement() {
+        const statement = sprintStatements[currentSprintIndex];
+        
+        // Set the statement text
+        document.getElementById('sprint-statement').textContent = statement.statement;
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback101').textContent = '';
+        document.getElementById('explanation101').classList.add('hidden');
+        document.getElementById('next101').classList.add('hidden');
+    }
+    
+    document.getElementById('sprint-true-btn').addEventListener('click', function() {
+        checkSprintAnswer(true);
+    });
+    
+    document.getElementById('sprint-false-btn').addEventListener('click', function() {
+        checkSprintAnswer(false);
+    });
+    
+    function checkSprintAnswer(answerIsTrue) {
+        const statement = sprintStatements[currentSprintIndex];
+        const feedback = document.getElementById('feedback101');
+        
+        if (answerIsTrue === statement.isTrue) {
+            feedback.textContent = "Correct! You've correctly identified the truth value of the statement.";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Think about whether the statement is true or false.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text101').textContent = statement.explanation;
+        document.getElementById('explanation101').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next101').classList.remove('hidden');
+    }
+    
+    document.getElementById('next101').addEventListener('click', function() {
+        currentSprintIndex++;
+        
+        if (currentSprintIndex < sprintStatements.length) {
+            loadSprintStatement();
+        } else {
+            document.getElementById('activity101').classList.add('hidden');
+            document.getElementById('activity102').classList.remove('hidden');
+            loadNegationStatement();
+        }
+    });
+    
+    // Event 2: Negation Relay
+    function loadNegationStatement() {
+        const statement = negationStatements[currentNegationIndex];
+        
+        // Set the statement text
+        document.getElementById('original-statement').textContent = statement.statement;
+        
+        // Clear the input
+        document.getElementById('negation-input').value = '';
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback102').textContent = '';
+        document.getElementById('explanation102').classList.add('hidden');
+        document.getElementById('next102').classList.add('hidden');
+    }
+    
+    document.getElementById('check-negation').addEventListener('click', function() {
+        const negationInput = document.getElementById('negation-input').value.trim();
+        
+        // Validation
+        if (!negationInput) {
+            alert("Please enter the negation of the statement!");
+            return;
+        }
+        
+        const statement = negationStatements[currentNegationIndex];
+        const feedback = document.getElementById('feedback102');
+        
+        // Basic evaluation - check if key words are present
+        // This is a simplified approach for educational purposes
+        const inputLower = negationInput.toLowerCase();
+        const possibleNegationLower = statement.negation.toLowerCase();
+        
+        // Check if the input is similar to the expected negation
+        // More sophisticated NLP could be used in a real-world application
+        if (inputLower.includes('not') || 
+            inputLower.includes('no ') || 
+            inputLower.includes('none') || 
+            inputLower.includes('never') ||
+            inputLower.includes('neither') ||
+            inputLower.includes('isn\'t') ||
+            inputLower.includes('aren\'t') ||
+            inputLower.includes('doesn\'t') ||
+            inputLower.includes('don\'t') ||
+            inputLower.includes('some') && possibleNegationLower.includes('some')) {
+            
+            feedback.textContent = "Good attempt at the negation!";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Try again. Look for a way to negate the statement.";
+            feedback.style.color = "orange";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text102').textContent = statement.explanation;
+        document.getElementById('suggested-negation').textContent = statement.negation;
+        document.getElementById('explanation102').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next102').classList.remove('hidden');
+    });
+    
+    document.getElementById('next102').addEventListener('click', function() {
+        currentNegationIndex++;
+        
+        if (currentNegationIndex < negationStatements.length) {
+            loadNegationStatement();
+        } else {
+            document.getElementById('activity102').classList.add('hidden');
+            document.getElementById('activity103').classList.remove('hidden');
+            loadLogicCondition();
+            setupObjectVisuals();
+        }
+    });
+    
+    // Event 3: AND/OR Obstacle Course
+    function setupObjectVisuals() {
+        for (let i = 0; i < logicObjects.length; i++) {
+            const obj = logicObjects[i];
+            const visualElement = document.getElementById(`visual${i+1}`);
+            const descElement = document.getElementById(`object-desc${i+1}`);
+            
+            // Set up appearance of the visual element
+            visualElement.style.width = '50px';
+            visualElement.style.height = '50px';
+            visualElement.style.backgroundColor = obj.color;
+            visualElement.style.borderRadius = obj.shape === 'circle' ? '50%' : '0';
+            visualElement.style.transform = obj.size === 'large' ? 'scale(1.5)' : 'scale(1)';
+            visualElement.style.border = obj.texture === 'rough' ? '3px dashed black' : '1px solid black';
+            
+            // Set description
+            descElement.textContent = `${obj.color} ${obj.size} ${obj.texture} ${obj.shape}`;
+            
+            // Add click event to select/deselect object
+            const objectElement = document.getElementById(`object${i+1}`);
+            objectElement.addEventListener('click', function() {
+                toggleObjectSelection(i);
+            });
+        }
+        
+        // Initial setup - clear any previous selections
+        selectedObjects = [];
+        updateObjectSelectionDisplay();
+    }
+    
+    function toggleObjectSelection(index) {
+        const objectIndex = selectedObjects.indexOf(index);
+        
+        if (objectIndex === -1) {
+            // Object not selected, add it
+            selectedObjects.push(index);
+        } else {
+            // Object already selected, remove it
+            selectedObjects.splice(objectIndex, 1);
+        }
+        
+        updateObjectSelectionDisplay();
+    }
+    
+    function updateObjectSelectionDisplay() {
+        // Update visual indication of selection
+        for (let i = 0; i < logicObjects.length; i++) {
+            const objectElement = document.getElementById(`object${i+1}`);
+            
+            if (selectedObjects.includes(i)) {
+                objectElement.style.backgroundColor = '#e6ffe6'; // Light green background
+                objectElement.style.border = '2px solid green';
+            } else {
+                objectElement.style.backgroundColor = '';
+                objectElement.style.border = '';
+            }
+        }
+    }
+    
+    function loadLogicCondition() {
+        const condition = logicConditions[currentLogicConditionIndex];
+        
+        // Set the condition text
+        document.getElementById('logic-condition').textContent = condition.condition;
+        
+        // Reset selections
+        selectedObjects = [];
+        updateObjectSelectionDisplay();
+        
+        // Add check button
+        document.getElementById('feedback103').innerHTML = '<button id="check-condition" class="next-btn">Check Selection</button>';
+        document.getElementById('check-condition').addEventListener('click', function() {
+            checkLogicSelection();
+        });
+        
+        // Hide explanation and next button
+        document.getElementById('explanation103').classList.add('hidden');
+        document.getElementById('next103').classList.add('hidden');
+    }
+    
+    function checkLogicSelection() {
+        const condition = logicConditions[currentLogicConditionIndex];
+        const feedback = document.getElementById('feedback103');
+        
+        // Sort both arrays to make comparison easier
+        const sortedSelected = [...selectedObjects].sort();
+        const sortedCorrect = [...condition.correctIndices].sort();
+        
+        // Check if arrays have the same length and same elements
+        const isCorrect = sortedSelected.length === sortedCorrect.length && 
+                         sortedSelected.every((value, index) => value === sortedCorrect[index]);
+        
+        if (isCorrect) {
+            feedback.textContent = "Correct! You've selected the right object(s) for this condition.";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Check the condition again and make sure you understand how AND and OR work.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text103').textContent = condition.explanation;
+        document.getElementById('explanation103').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next103').classList.remove('hidden');
+    }
+    
+    document.getElementById('next103').addEventListener('click', function() {
+        currentLogicConditionIndex++;
+        
+        if (currentLogicConditionIndex < logicConditions.length) {
+            loadLogicCondition();
+        } else {
+            document.getElementById('activity103').classList.add('hidden');
+            document.getElementById('activity104').classList.remove('hidden');
+            loadConditionalScenario();
+        }
+    });
+    
+    // Event 4: If-Then Challenge
+    function loadConditionalScenario() {
+        const scenario = conditionalScenarios[currentConditionalIndex];
+        
+        // Set the scenario text
+        document.getElementById('conditional-statement').textContent = scenario.statement;
+        document.getElementById('scenario-text').textContent = scenario.scenario;
+        document.getElementById('conditional-question').textContent = scenario.question;
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback104').textContent = '';
+        document.getElementById('explanation104').classList.add('hidden');
+        document.getElementById('next104').classList.add('hidden');
+    }
+    
+    document.getElementById('condition-true-btn').addEventListener('click', function() {
+        checkConditionalAnswer(true);
+    });
+    
+    document.getElementById('condition-false-btn').addEventListener('click', function() {
+        checkConditionalAnswer(false);
+    });
+    
+    function checkConditionalAnswer(answerIsTrue) {
+        const scenario = conditionalScenarios[currentConditionalIndex];
+        const feedback = document.getElementById('feedback104');
+        
+        if (answerIsTrue === scenario.answer) {
+            feedback.textContent = "Correct! You've drawn the right conclusion from the conditional statement.";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Think about how conditional statements work.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text104').textContent = scenario.explanation;
+        document.getElementById('explanation104').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next104').classList.remove('hidden');
+    }
+    
+    document.getElementById('next104').addEventListener('click', function() {
+        currentConditionalIndex++;
+        
+        if (currentConditionalIndex < conditionalScenarios.length) {
+            loadConditionalScenario();
+        } else {
+            document.getElementById('activity104').classList.add('hidden');
+            document.getElementById('activity105').classList.remove('hidden');
+            loadDiagnosticArgument();
+        }
+    });
+    
+    // Event 5: Argument Clinic Diagnosis
+    function loadDiagnosticArgument() {
+        const argument = diagnosticArguments[currentDiagnosticIndex];
+        
+        // Set the argument text
+        document.getElementById('olympics-argument').textContent = argument.argument;
+        
+        // Reset radio buttons
+        const radioButtons = document.querySelectorAll('input[name="argument-diagnosis"]');
+        radioButtons.forEach(radio => {
+            radio.checked = false;
+        });
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback105').textContent = '';
+        document.getElementById('explanation105').classList.add('hidden');
+        document.getElementById('next105').classList.add('hidden');
+    }
+    
+    document.getElementById('check-diagnosis').addEventListener('click', function() {
+        const selectedDiagnosis = document.querySelector('input[name="argument-diagnosis"]:checked');
+        
+        if (!selectedDiagnosis) {
+            alert("Please select a diagnosis before checking!");
+            return;
+        }
+        
+        const argument = diagnosticArguments[currentDiagnosticIndex];
+        const selectedOption = selectedDiagnosis.id.replace('-option', '');
+        const feedback = document.getElementById('feedback105');
+        
+        if (selectedOption === argument.diagnosis) {
+            feedback.textContent = "Correct! You've correctly diagnosed the argument.";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Analyze the argument structure more carefully.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text105').textContent = argument.explanation;
+        document.getElementById('explanation105').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next105').classList.remove('hidden');
+    });
+    
+    document.getElementById('next105').addEventListener('click', function() {
+        currentDiagnosticIndex++;
+        
+        if (currentDiagnosticIndex < diagnosticArguments.length) {
+            loadDiagnosticArgument();
+        } else {
+            document.getElementById('activity105').classList.add('hidden');
+            document.getElementById('activity106').classList.remove('hidden');
+        }
+    });
+    
+    // Event 6: Logic Grid Puzzle
+    document.getElementById('check-puzzle').addEventListener('click', function() {
+        // Get all selections
+        const alexPet = document.getElementById('alex-pet').value;
+        const bellaPet = document.getElementById('bella-pet').value;
+        const carlosPet = document.getElementById('carlos-pet').value;
+        const dianaPet = document.getElementById('diana-pet').value;
+        
+        const alexColor = document.getElementById('alex-color').value;
+        const bellaColor = document.getElementById('bella-color').value;
+        const carlosColor = document.getElementById('carlos-color').value;
+        const dianaColor = document.getElementById('diana-color').value;
+        
+        // Validation - check that all dropdowns have a selection
+        if (!alexPet || !bellaPet || !carlosPet || !dianaPet || 
+            !alexColor || !bellaColor || !carlosColor || !dianaColor) {
+            alert("Please complete all selections in the solution table!");
+            return;
+        }
+        
+        // Check for duplicates in pets
+        const pets = [alexPet, bellaPet, carlosPet, dianaPet];
+        const uniquePets = new Set(pets);
+        if (uniquePets.size !== 4) {
+            alert("Each child must have a different pet! Check your pet selections.");
+            return;
+        }
+        
+        // Check for duplicates in colors
+        const colors = [alexColor, bellaColor, carlosColor, dianaColor];
+        const uniqueColors = new Set(colors);
+        if (uniqueColors.size !== 4) {
+            alert("Each pet must have a different color! Check your color selections.");
+            return;
+        }
+        
+        // Check against solution
+        const isAlexCorrect = alexPet === puzzleSolution.alex.pet && alexColor === puzzleSolution.alex.color;
+        const isBellaCorrect = bellaPet === puzzleSolution.bella.pet && bellaColor === puzzleSolution.bella.color;
+        const isCarlosCorrect = carlosPet === puzzleSolution.carlos.pet && carlosColor === puzzleSolution.carlos.color;
+        const isDianaCorrect = dianaPet === puzzleSolution.diana.pet && dianaColor === puzzleSolution.diana.color;
+        
+        const allCorrect = isAlexCorrect && isBellaCorrect && isCarlosCorrect && isDianaCorrect;
+        
+        const feedback = document.getElementById('feedback106');
+        
+        if (allCorrect) {
+            feedback.textContent = "Perfect! You've solved the logic puzzle correctly.";
+            feedback.style.color = "green";
+            
+            // Show explanation
+            document.getElementById('explanation-text106').textContent = 
+                "You correctly used the clues to deduce that: " +
+                "Alex bought the blue dog, " +
+                "Bella bought the green fish, " +
+                "Carlos bought the red bird, " +
+                "and Diana bought the yellow cat.";
+            document.getElementById('explanation106').classList.remove('hidden');
+            
+            // Show next button
+            document.getElementById('next106').classList.remove('hidden');
+        } else {
+            // Give hints about which parts are wrong
+            let hints = [];
+            
+            if (!isAlexCorrect) hints.push("Check Alex's pet and color.");
+            if (!isBellaCorrect) hints.push("Check Bella's pet and color.");
+            if (!isCarlosCorrect) hints.push("Check Carlos's pet and color.");
+            if (!isDianaCorrect) hints.push("Check Diana's pet and color.");
+            
+            feedback.innerHTML = "Not quite right. " + hints.join(" ") + "<br>Review the clues carefully.";
+            feedback.style.color = "red";
+        }
+    });
+    
+    document.getElementById('next106').addEventListener('click', function() {
+        document.getElementById('activity106').classList.add('hidden');
+        document.getElementById('activity107').classList.remove('hidden');
+    });
+    
+    // Event 7: Create-Your-Own Logic Puzzle
+    document.getElementById('create-puzzle').addEventListener('click', function() {
+        const puzzleTitle = document.getElementById('puzzle-title').value.trim();
+        const puzzleContent = document.getElementById('puzzle-content').value.trim();
+        const puzzleAnswer = document.getElementById('puzzle-answer').value.trim();
+        
+        // Validation
+        if (!puzzleTitle || !puzzleContent || !puzzleAnswer) {
+            alert("Please fill in all fields: title, content, and answer/solution!");
+            return;
+        }
+        
+        // Display the created puzzle
+        document.getElementById('display-title').textContent = puzzleTitle;
+        document.getElementById('display-content').textContent = puzzleContent;
+        document.getElementById('display-answer').textContent = puzzleAnswer;
+        
+        // Show the puzzle display
+        document.getElementById('puzzle-display').classList.remove('hidden');
+        document.getElementById('solution-section').classList.add('hidden');
+        
+        // Show feedback and completion button
+        document.getElementById('feedback107').textContent = "Excellent job creating your own logic puzzle!";
+        document.getElementById('feedback107').style.color = "green";
+        document.getElementById('next107').classList.remove('hidden');
+    });
+    
+    document.getElementById('show-solution').addEventListener('click', function() {
+        document.getElementById('solution-section').classList.remove('hidden');
+        this.style.display = 'none';
+    });
+    
+    document.getElementById('next107').addEventListener('click', function() {
+        document.getElementById('activity107').classList.add('hidden');
+        document.getElementById('completion10').classList.remove('hidden');
+    });
+    
+    document.getElementById('restart-final10').addEventListener('click', function() {
+        resetLesson10();
+        document.getElementById('completion10').classList.add('hidden');
+        document.getElementById('introduction10').classList.remove('hidden');
+    });
+    
+    document.getElementById('back-to-lesson9').addEventListener('click', function() {
+        document.getElementById('lesson10-content').classList.add('hidden');
+        document.getElementById('lesson9-content').classList.remove('hidden');
+        document.getElementById('lesson10-btn').classList.remove('active');
+        document.getElementById('lesson9-btn').classList.add('active');
+    });
+    
+    function resetLesson10() {
+        currentSprintIndex = 0;
+        currentNegationIndex = 0;
+        currentLogicConditionIndex = 0;
+        currentConditionalIndex = 0;
+        currentDiagnosticIndex = 0;
+        
+        // Hide all activities
+        document.querySelectorAll('#activity101, #activity102, #activity103, #activity104, #activity105, #activity106, #activity107, #completion10').forEach(el => {
+            el.classList.add('hidden');
+        });
+        
+        // Reset puzzle display
+        document.getElementById('puzzle-display').classList.add('hidden');
+        
+        // Reset feedback and explanations for all activities
+        for (let i = 1; i <= 7; i++) {
+            const feedbackElement = document.getElementById(`feedback10${i}`);
+            if (feedbackElement) feedbackElement.textContent = '';
+            
+            const explanationElement = document.getElementById(`explanation10${i}`);
+            if (explanationElement) explanationElement.classList.add('hidden');
+            
+            const nextButton = document.getElementById(`next10${i}`);
+            if (nextButton) nextButton.classList.add('hidden');
+        }
+    }
 });

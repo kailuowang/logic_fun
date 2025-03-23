@@ -208,6 +208,7 @@
         <button id="lesson7-btn" class="lesson-btn">Lesson 7: Missing Cookies</button>
         <button id="lesson8-btn" class="lesson-btn">Lesson 8: The Argument Clinic</button>
         <button id="lesson9-btn" class="lesson-btn">Lesson 9: The Fallacy Fair</button>
+        <button id="lesson10-btn" class="lesson-btn">Lesson 10: The Logic Olympics</button>
     </div>
     
     <!-- Lesson 1 Content -->
@@ -1673,6 +1674,381 @@
             </div>
         </div>
     </div> <!-- End of Lesson 9 content -->
+
+    <!-- Lesson 10 Content -->
+    <div id="lesson10-content" class="hidden">
+        <h2>Lesson 10: The Logic Olympics</h2>
+        
+        <div id="introduction10" class="story">
+            <h2>The Logic Olympics</h2>
+            <p>"Congratulations, young logicians! You've journeyed through Trueland and Falseville, met wizards and detectives, explored magical mirrors and wishing wells, and even visited the Fallacy Fair! You've learned so much about logic:</p>
+            
+            <ul>
+                <li><strong>Statements:</strong> Sentences that are either true or false.</li>
+                <li><strong>NOT (Negation):</strong> Making a statement its opposite.</li>
+                <li><strong>AND (Conjunction):</strong> Both parts must be true.</li>
+                <li><strong>OR (Disjunction):</strong> At least one part must be true.</li>
+                <li><strong>IF...THEN... (Conditional Statements):</strong> A promise between two parts.</li>
+                <li><strong>Arguments:</strong> Premises leading to a conclusion.</li>
+                <li><strong>Valid vs. Invalid Arguments:</strong> Good structure vs. flawed structure.</li>
+                <li><strong>Logical Fallacies:</strong> Sneaky errors in reasoning (hasty generalization, appeal to emotion).</li>
+            </ul>
+            
+            <p>Today, we're going to put all that knowledge to the test in the Logic Olympics! Get ready for challenges that will test your skills in every area of logic we've explored."</p>
+            
+            <button id="start-activity10" class="next-btn">Start the Logic Olympics</button>
+        </div>
+        
+        <div id="activity101" class="activity hidden">
+            <h3>Event 1: True/False Sprint</h3>
+            <p>In this event, you'll identify whether statements are true or false. Ready, set, go!</p>
+            
+            <div class="statement-card">
+                <p id="sprint-statement"></p>
+            </div>
+            
+            <div class="buttons">
+                <button id="sprint-true-btn" class="true-btn">True</button>
+                <button id="sprint-false-btn" class="false-btn">False</button>
+            </div>
+            
+            <div id="feedback101"></div>
+            <div id="explanation101" class="hidden">
+                <p id="explanation-text101"></p>
+            </div>
+            
+            <button id="next101" class="next-btn hidden">Next Statement</button>
+        </div>
+        
+        <div id="activity102" class="activity hidden">
+            <h3>Event 2: Negation Relay</h3>
+            <p>In this event, you'll create the negation (opposite) of each statement. Ready to negate?</p>
+            
+            <div class="statement-card">
+                <p id="original-statement"></p>
+            </div>
+            
+            <div class="negation-input">
+                <label for="negation-input">Write the negation:</label>
+                <input type="text" id="negation-input" placeholder="Enter the negation of the statement...">
+                <button id="check-negation" class="next-btn">Check Negation</button>
+            </div>
+            
+            <div id="feedback102"></div>
+            <div id="explanation102" class="hidden">
+                <p id="explanation-text102"></p>
+                <p><strong>Possible negation:</strong> <span id="suggested-negation"></span></p>
+            </div>
+            
+            <button id="next102" class="next-btn hidden">Next Statement</button>
+        </div>
+        
+        <div id="activity103" class="activity hidden">
+            <h3>Event 3: AND/OR Obstacle Course</h3>
+            <p>In this event, you'll identify objects that meet logical conditions using AND and OR.</p>
+            
+            <div class="condition-card">
+                <p id="logic-condition"></p>
+            </div>
+            
+            <div class="object-grid">
+                <div class="object" id="object1">
+                    <div class="object-visual" id="visual1"></div>
+                    <p id="object-desc1"></p>
+                </div>
+                <div class="object" id="object2">
+                    <div class="object-visual" id="visual2"></div>
+                    <p id="object-desc2"></p>
+                </div>
+                <div class="object" id="object3">
+                    <div class="object-visual" id="visual3"></div>
+                    <p id="object-desc3"></p>
+                </div>
+                <div class="object" id="object4">
+                    <div class="object-visual" id="visual4"></div>
+                    <p id="object-desc4"></p>
+                </div>
+            </div>
+            
+            <div id="feedback103"></div>
+            <div id="explanation103" class="hidden">
+                <p id="explanation-text103"></p>
+            </div>
+            
+            <button id="next103" class="next-btn hidden">Next Challenge</button>
+        </div>
+        
+        <div id="activity104" class="activity hidden">
+            <h3>Event 4: If-Then Challenge</h3>
+            <p>In this event, you'll work with conditional statements (If-Then) to analyze logical relationships.</p>
+            
+            <div class="conditional-card">
+                <p id="conditional-statement"></p>
+                <div class="scenario-description">
+                    <p id="scenario-text"></p>
+                </div>
+                <p><strong>Question:</strong> <span id="conditional-question"></span></p>
+            </div>
+            
+            <div class="buttons">
+                <button id="condition-true-btn" class="true-btn">True / Follows</button>
+                <button id="condition-false-btn" class="false-btn">False / Doesn't Follow</button>
+            </div>
+            
+            <div id="feedback104"></div>
+            <div id="explanation104" class="hidden">
+                <p id="explanation-text104"></p>
+            </div>
+            
+            <button id="next104" class="next-btn hidden">Next Challenge</button>
+        </div>
+        
+        <div id="activity105" class="activity hidden">
+            <h3>Event 5: Argument Clinic Diagnosis</h3>
+            <p>In this event, you'll diagnose arguments as valid or invalid and identify any fallacies.</p>
+            
+            <div class="argument-card">
+                <p id="olympics-argument"></p>
+                <p><strong>What's your diagnosis?</strong></p>
+            </div>
+            
+            <div class="diagnosis-options">
+                <div>
+                    <input type="radio" id="valid-option" name="argument-diagnosis">
+                    <label for="valid-option">Valid Argument</label>
+                </div>
+                <div>
+                    <input type="radio" id="invalid-option" name="argument-diagnosis">
+                    <label for="invalid-option">Invalid Argument</label>
+                </div>
+                <div>
+                    <input type="radio" id="hasty-option" name="argument-diagnosis">
+                    <label for="hasty-option">Hasty Generalization Fallacy</label>
+                </div>
+                <div>
+                    <input type="radio" id="emotion-option" name="argument-diagnosis">
+                    <label for="emotion-option">Appeal to Emotion Fallacy</label>
+                </div>
+            </div>
+            
+            <button id="check-diagnosis" class="next-btn">Check Diagnosis</button>
+            
+            <div id="feedback105"></div>
+            <div id="explanation105" class="hidden">
+                <p id="explanation-text105"></p>
+            </div>
+            
+            <button id="next105" class="next-btn hidden">Next Argument</button>
+        </div>
+        
+        <div id="activity106" class="activity hidden">
+            <h3>Event 6: Logic Grid Puzzle</h3>
+            <p>In this event, you'll solve a logic grid puzzle by using multiple logical concepts together.</p>
+            
+            <div class="puzzle-container">
+                <h4>The Pet Shop Puzzle</h4>
+                <p>Four children (Alex, Bella, Carlos, and Diana) each bought a different pet (cat, dog, fish, or bird) of a different color (red, blue, green, or yellow). Use the clues to figure out which child bought which pet and what color it was.</p>
+                
+                <div class="clues-container">
+                    <h4>Clues:</h4>
+                    <ol id="puzzle-clues">
+                        <li>The child who bought the yellow pet also bought the fish.</li>
+                        <li>Alex did not buy a cat or a bird.</li>
+                        <li>Bella bought a green pet.</li>
+                        <li>Carlos bought a bird.</li>
+                        <li>Diana's pet was not red.</li>
+                        <li>The dog was blue.</li>
+                    </ol>
+                </div>
+                
+                <div class="puzzle-solution">
+                    <h4>Your Solution:</h4>
+                    <table id="solution-table">
+                        <tr>
+                            <th></th>
+                            <th>Alex</th>
+                            <th>Bella</th>
+                            <th>Carlos</th>
+                            <th>Diana</th>
+                        </tr>
+                        <tr>
+                            <th>Pet</th>
+                            <td>
+                                <select id="alex-pet">
+                                    <option value="">--Select--</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="fish">Fish</option>
+                                    <option value="bird">Bird</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="bella-pet">
+                                    <option value="">--Select--</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="fish">Fish</option>
+                                    <option value="bird">Bird</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="carlos-pet">
+                                    <option value="">--Select--</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="fish">Fish</option>
+                                    <option value="bird">Bird</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="diana-pet">
+                                    <option value="">--Select--</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="fish">Fish</option>
+                                    <option value="bird">Bird</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Color</th>
+                            <td>
+                                <select id="alex-color">
+                                    <option value="">--Select--</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                    <option value="yellow">Yellow</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="bella-color">
+                                    <option value="">--Select--</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                    <option value="yellow">Yellow</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="carlos-color">
+                                    <option value="">--Select--</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                    <option value="yellow">Yellow</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="diana-color">
+                                    <option value="">--Select--</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                    <option value="yellow">Yellow</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <button id="check-puzzle" class="next-btn">Check Solution</button>
+            </div>
+            
+            <div id="feedback106"></div>
+            <div id="explanation106" class="hidden">
+                <p id="explanation-text106"></p>
+            </div>
+            
+            <button id="next106" class="next-btn hidden">Next Event</button>
+        </div>
+        
+        <div id="activity107" class="activity hidden">
+            <h3>Event 7: Create-Your-Own Logic Puzzle</h3>
+            <p>In this final event, you'll create your own logic puzzle or challenge using any concepts you've learned.</p>
+            
+            <div class="create-puzzle-container">
+                <h4>Design Your Puzzle:</h4>
+                
+                <div class="puzzle-type-selection">
+                    <p><strong>What type of puzzle would you like to create?</strong></p>
+                    <select id="puzzle-type">
+                        <option value="statement">True/False Statements</option>
+                        <option value="negation">Negation Challenge</option>
+                        <option value="conditional">If-Then Puzzle</option>
+                        <option value="andor">AND/OR Logic Puzzle</option>
+                        <option value="argument">Logical Argument</option>
+                    </select>
+                </div>
+                
+                <div class="puzzle-inputs">
+                    <label for="puzzle-title">Puzzle Title:</label>
+                    <input type="text" id="puzzle-title" placeholder="Give your puzzle a name...">
+                    
+                    <label for="puzzle-content">Puzzle Content:</label>
+                    <textarea id="puzzle-content" rows="5" placeholder="Write your puzzle here..."></textarea>
+                    
+                    <label for="puzzle-answer">Answer/Solution:</label>
+                    <textarea id="puzzle-answer" rows="3" placeholder="Provide the answer or solution..."></textarea>
+                </div>
+                
+                <button id="create-puzzle" class="next-btn">Create Puzzle</button>
+            </div>
+            
+            <div id="puzzle-display" class="hidden">
+                <h4>Your Created Puzzle:</h4>
+                <div class="created-puzzle">
+                    <h5 id="display-title"></h5>
+                    <p id="display-content"></p>
+                    <div class="solution-section hidden" id="solution-section">
+                        <h5>Solution:</h5>
+                        <p id="display-answer"></p>
+                    </div>
+                    <button id="show-solution" class="next-btn">Show Solution</button>
+                </div>
+            </div>
+            
+            <div id="feedback107"></div>
+            
+            <button id="next107" class="next-btn hidden">Complete the Olympics</button>
+        </div>
+        
+        <div id="completion10" class="activity hidden">
+            <h2>Closing Ceremony</h2>
+            <p>Congratulations! You've completed the Logic Olympics and have demonstrated your mastery of logical concepts!</p>
+            
+            <div class="certificate">
+                <h3>Certificate of Achievement</h3>
+                <p>This certifies that</p>
+                <p class="certificate-name">YOU</p>
+                <p>have successfully completed all ten lessons of Logic Fun and demonstrated excellence in logical reasoning!</p>
+                <p>You are now a Master of Logic!</p>
+            </div>
+            
+            <div class="recap">
+                <h3>Recap of Your Journey:</h3>
+                <ul>
+                    <li>You learned about statements and truth values in Trueland and Falseville</li>
+                    <li>You explored negation with the Magic Mirror</li>
+                    <li>You mastered conjunction with the Two-Ingredient Potion</li>
+                    <li>You understood disjunction in the Choice Garden</li>
+                    <li>You discovered conditional statements at the Wishing Well</li>
+                    <li>You applied logical reasoning with the Detective</li>
+                    <li>You built arguments in the Case of the Missing Cookies</li>
+                    <li>You distinguished valid and invalid arguments at the Argument Clinic</li>
+                    <li>You identified logical fallacies at the Fallacy Fair</li>
+                    <li>Finally, you combined all your skills in the Logic Olympics!</li>
+                </ul>
+            </div>
+            
+            <p>Remember to use your logical reasoning skills in everyday life. They'll help you make better decisions, solve problems, and understand the world around you!</p>
+            
+            <div class="buttons">
+                <button id="restart-final10" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson9" class="next-btn">Back to Lesson 9</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 10 content -->
     
     <script src="script.js"></script>
 </body>
