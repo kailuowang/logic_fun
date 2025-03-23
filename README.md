@@ -28,9 +28,12 @@ Introduces logical arguments, premises, and conclusions through a mystery story 
 ### Lesson 8: The Argument Clinic
 Teaches the difference between valid and invalid arguments through a story about a special clinic where doctors examine and diagnose arguments based on their logical structure.
 
+### Lesson 9: The Fallacy Fair
+Introduces common logical fallacies through a story about a fair where vendors showcase flawed reasoning patterns, focusing on hasty generalizations and appeals to emotion.
+
 ## Features
 
-- Engaging stories about Trueland, Falseville, the Magic Mirror, the Two-Ingredient Potion, the Choice Garden, the Magical Wishing Well, the Detective of If-Thenville, the Case of the Missing Cookies, and the Argument Clinic
+- Engaging stories about Trueland, Falseville, the Magic Mirror, the Two-Ingredient Potion, the Choice Garden, the Magical Wishing Well, the Detective of If-Thenville, the Case of the Missing Cookies, the Argument Clinic, and the Fallacy Fair
 - Interactive activities:
   - Lesson 1:
     - Activity 1: Statement sorting (identifying statements vs. non-statements)
@@ -64,6 +67,10 @@ Teaches the difference between valid and invalid arguments through a story about
     - Activity 1: Argument Sorting (classifying arguments as valid or invalid)
     - Activity 2: Completing Valid Arguments (selecting valid conclusions from given premises)
     - Activity 3: Spotting the Flaw (identifying logical flaws in invalid arguments)
+  - Lesson 9:
+    - Activity 1: Fallacy Identification (recognizing hasty generalizations and appeals to emotion)
+    - Activity 2: Fallacy Warning Signs (creating informative posters about logical fallacies)
+    - Activity 3: Fallacy Role-Play (practicing using and identifying fallacies in conversations)
 
 ## How to Use
 

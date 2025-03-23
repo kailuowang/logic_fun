@@ -2601,4 +2601,331 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('flaw-explanation').classList.add('hidden');
         document.getElementById('next83').classList.add('hidden');
     }
+    
+    //------------------ LESSON 9 ------------------//
+    
+    // Fallacy Identification scenarios (Activity 1)
+    const fallacyStories = [
+        {
+            story: "I saw a black cat cross my path, and then I tripped. Therefore, black cats are bad luck.",
+            type: "hasty",
+            explanation: "This is a hasty generalization. One experience with a black cat doesn't prove that black cats always bring bad luck. There could be many other reasons the person tripped that have nothing to do with the cat."
+        },
+        {
+            story: "You should give me an A on this paper because I worked really hard on it, and I'll be so disappointed if I get a bad grade.",
+            type: "emotion",
+            explanation: "This is an appeal to emotion. The argument tries to use feelings (disappointment) instead of the quality of the paper to justify getting an A grade."
+        },
+        {
+            story: "My grandpa smoked every day and lived to be 100. Therefore, smoking isn't bad for you.",
+            type: "hasty",
+            explanation: "This is a hasty generalization. One example of someone who smoked and lived a long life doesn't prove that smoking is safe. Many factors affect how long a person lives."
+        },
+        {
+            story: "You should let me stay up late because all my friends get to, and I'll be really embarrassed if I have to go to bed earlier.",
+            type: "emotion",
+            explanation: "This is an appeal to emotion. The argument tries to use feelings (embarrassment) instead of logical reasons to justify staying up late."
+        },
+        {
+            story: "All squares have four equal sides. This shape has four equal sides. Therefore, this shape is a square.",
+            type: "none",
+            explanation: "This is not a fallacy! This is actually a valid argument, though it's missing that a square also needs four right angles. With that additional premise, it would be completely valid."
+        },
+        {
+            story: "If it rains, the grass gets wet. The grass is wet. It must have rained recently.",
+            type: "hasty",
+            explanation: "This is a logical fallacy called 'affirming the consequent'. Just because rain causes wet grass doesn't mean wet grass is always caused by rain. Someone might have watered the lawn, or there could be morning dew."
+        }
+    ];
+    
+    // Fallacy types and descriptions for Activity 2
+    const fallacyTypes = [
+        {
+            name: "Hasty Generalization",
+            description: "A fallacy where someone makes a broad conclusion based on too little evidence or a small sample size."
+        },
+        {
+            name: "Appeal to Emotion",
+            description: "A fallacy where someone tries to win an argument by making you feel certain emotions rather than using logical reasoning."
+        }
+    ];
+    
+    // Role-play scenarios for Activity 3
+    const rolePlayScenarios = [
+        {
+            situation: "You want your friend to try a new food they've never tasted before.",
+            hastyExample: "I tried this food once and loved it, so everyone loves this food!",
+            emotionExample: "If you don't try it, I'll be really upset with you. Don't you want me to be happy?"
+        },
+        {
+            situation: "You want your parent to buy you a new video game.",
+            hastyExample: "My friend played this game once and said it was good, so it must be the best game ever made!",
+            emotionExample: "I'll be the only kid in my class who doesn't have this game. Everyone will make fun of me!"
+        },
+        {
+            situation: "You're trying to convince your teacher to postpone a test.",
+            hastyExample: "One student isn't ready for the test, so none of us are ready.",
+            emotionExample: "We'll all be so stressed and anxious if you give the test tomorrow. Think about how terrible we'll feel!"
+        },
+        {
+            situation: "You want your sibling to share their toy with you.",
+            hastyExample: "You shared your toy with me once, which means you should always share all your toys!",
+            emotionExample: "If you don't share, I'll be so sad and lonely playing by myself. Don't you care about my feelings?"
+        }
+    ];
+    
+    let currentFallacyStoryIndex = 0;
+    let currentFallacyTypeIndex = 0;
+    let currentRolePlayIndex = 0;
+    let selectedFallacyType = "";
+    
+    // Navigation and activity initialization for Lesson 9
+    document.getElementById('lesson9-btn').addEventListener('click', function() {
+        // Hide all lesson contents
+        const lessonContents = document.querySelectorAll('[id$="-content"]');
+        lessonContents.forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Deactivate all buttons
+        const lessonButtons = document.querySelectorAll('.lesson-btn');
+        lessonButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show Lesson 9 content and activate button
+        document.getElementById('lesson9-content').classList.remove('hidden');
+        this.classList.add('active');
+    });
+    
+    document.getElementById('start-activity9').addEventListener('click', function() {
+        document.getElementById('introduction9').classList.add('hidden');
+        document.getElementById('activity91').classList.remove('hidden');
+        loadFallacyStory();
+    });
+    
+    // Activity 1: Fallacy Identification
+    function loadFallacyStory() {
+        const story = fallacyStories[currentFallacyStoryIndex];
+        
+        // Set the story text
+        document.getElementById('fallacy-story').textContent = story.story;
+        
+        // Hide feedback and explanation
+        document.getElementById('feedback91').textContent = '';
+        document.getElementById('explanation91').classList.add('hidden');
+        document.getElementById('next91').classList.add('hidden');
+    }
+    
+    document.getElementById('hasty-btn').addEventListener('click', function() {
+        checkFallacyAnswer("hasty");
+    });
+    
+    document.getElementById('emotion-btn').addEventListener('click', function() {
+        checkFallacyAnswer("emotion");
+    });
+    
+    document.getElementById('no-fallacy-btn').addEventListener('click', function() {
+        checkFallacyAnswer("none");
+    });
+    
+    function checkFallacyAnswer(answerType) {
+        const story = fallacyStories[currentFallacyStoryIndex];
+        const feedback = document.getElementById('feedback91');
+        
+        if (answerType === story.type) {
+            feedback.textContent = "Correct! You've correctly identified the type of fallacy (or lack thereof).";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = "Not quite right. Think about the type of reasoning being used.";
+            feedback.style.color = "red";
+        }
+        
+        // Show the explanation
+        document.getElementById('explanation-text91').textContent = story.explanation;
+        document.getElementById('explanation91').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next91').classList.remove('hidden');
+    }
+    
+    document.getElementById('next91').addEventListener('click', function() {
+        currentFallacyStoryIndex++;
+        
+        if (currentFallacyStoryIndex < fallacyStories.length) {
+            loadFallacyStory();
+        } else {
+            document.getElementById('activity91').classList.add('hidden');
+            document.getElementById('activity92').classList.remove('hidden');
+            loadFallacyType();
+        }
+    });
+    
+    // Activity 2: Fallacy Warning Signs
+    function loadFallacyType() {
+        const fallacyType = fallacyTypes[currentFallacyTypeIndex];
+        
+        // Set the fallacy information
+        document.getElementById('current-fallacy').textContent = fallacyType.name;
+        document.getElementById('fallacy-description').textContent = fallacyType.description;
+        
+        // Clear previous inputs and results
+        document.getElementById('definition-input').value = '';
+        document.getElementById('example-input').value = '';
+        document.getElementById('tip-input').value = '';
+        
+        document.getElementById('definition-text').textContent = '';
+        document.getElementById('example-text').textContent = '';
+        document.getElementById('tip-text').textContent = '';
+        
+        // Hide feedback and next button
+        document.getElementById('feedback92').textContent = '';
+        document.getElementById('next-fallacy-container').classList.add('hidden');
+    }
+    
+    document.getElementById('check-warning').addEventListener('click', function() {
+        const definitionInput = document.getElementById('definition-input').value.trim();
+        const exampleInput = document.getElementById('example-input').value.trim();
+        const tipInput = document.getElementById('tip-input').value.trim();
+        
+        // Validation
+        if (!definitionInput || !exampleInput || !tipInput) {
+            alert("Please fill in all fields: definition, example, and warning tip!");
+            return;
+        }
+        
+        // Display the warning sign
+        document.getElementById('definition-text').textContent = definitionInput;
+        document.getElementById('example-text').textContent = exampleInput;
+        document.getElementById('tip-text').textContent = tipInput;
+        
+        // Show feedback and next button
+        document.getElementById('feedback92').textContent = "Great job creating a warning sign for this fallacy!";
+        document.getElementById('feedback92').style.color = "green";
+        document.getElementById('next-fallacy-container').classList.remove('hidden');
+    });
+    
+    document.getElementById('next92').addEventListener('click', function() {
+        currentFallacyTypeIndex++;
+        
+        if (currentFallacyTypeIndex < fallacyTypes.length) {
+            loadFallacyType();
+        } else {
+            document.getElementById('activity92').classList.add('hidden');
+            document.getElementById('activity93').classList.remove('hidden');
+            loadRolePlayScenario();
+        }
+    });
+    
+    // Activity 3: Fallacy Role-Play
+    function loadRolePlayScenario() {
+        const scenario = rolePlayScenarios[currentRolePlayIndex];
+        
+        // Set the situation text
+        document.getElementById('situation-text').textContent = scenario.situation;
+        
+        // Reset the fallacy selection
+        selectedFallacyType = "";
+        
+        // Hide argument input, feedback, and next button
+        document.getElementById('argument-input-container').classList.add('hidden');
+        document.getElementById('feedback93').textContent = '';
+        document.getElementById('explanation93').classList.add('hidden');
+        document.getElementById('next93').classList.add('hidden');
+    }
+    
+    document.getElementById('use-hasty').addEventListener('click', function() {
+        selectedFallacyType = "hasty";
+        showArgumentInput();
+    });
+    
+    document.getElementById('use-emotion').addEventListener('click', function() {
+        selectedFallacyType = "emotion";
+        showArgumentInput();
+    });
+    
+    function showArgumentInput() {
+        document.getElementById('argument-input-container').classList.remove('hidden');
+        document.getElementById('argument-input').value = '';
+    }
+    
+    document.getElementById('check-argument9').addEventListener('click', function() {
+        const argumentInput = document.getElementById('argument-input').value.trim();
+        
+        // Validation
+        if (!argumentInput) {
+            alert("Please write your argument first!");
+            return;
+        }
+        
+        const scenario = rolePlayScenarios[currentRolePlayIndex];
+        const feedback = document.getElementById('feedback93');
+        
+        // Provide positive feedback regardless of content
+        feedback.textContent = "Good attempt! Let's see how your argument uses the fallacy.";
+        feedback.style.color = "green";
+        
+        // Show example of how this fallacy might be used in this scenario
+        let explanationText = "";
+        
+        if (selectedFallacyType === "hasty") {
+            explanationText = `Here's an example of a hasty generalization for this situation: "${scenario.hastyExample}" Your argument might be different, but should follow the pattern of drawing a big conclusion from limited evidence.`;
+        } else {
+            explanationText = `Here's an example of an appeal to emotion for this situation: "${scenario.emotionExample}" Your argument might be different, but should focus on feelings rather than logical reasons.`;
+        }
+        
+        document.getElementById('explanation-text93').textContent = explanationText;
+        document.getElementById('explanation93').classList.remove('hidden');
+        
+        // Show next button
+        document.getElementById('next93').classList.remove('hidden');
+    });
+    
+    document.getElementById('next93').addEventListener('click', function() {
+        currentRolePlayIndex++;
+        
+        if (currentRolePlayIndex < rolePlayScenarios.length) {
+            loadRolePlayScenario();
+        } else {
+            document.getElementById('activity93').classList.add('hidden');
+            document.getElementById('completion9').classList.remove('hidden');
+        }
+    });
+    
+    document.getElementById('restart-final9').addEventListener('click', function() {
+        resetLesson9();
+        document.getElementById('completion9').classList.add('hidden');
+        document.getElementById('introduction9').classList.remove('hidden');
+    });
+    
+    document.getElementById('back-to-lesson8').addEventListener('click', function() {
+        document.getElementById('lesson9-content').classList.add('hidden');
+        document.getElementById('lesson8-content').classList.remove('hidden');
+        document.getElementById('lesson9-btn').classList.remove('active');
+        document.getElementById('lesson8-btn').classList.add('active');
+    });
+    
+    function resetLesson9() {
+        currentFallacyStoryIndex = 0;
+        currentFallacyTypeIndex = 0;
+        currentRolePlayIndex = 0;
+        
+        // Hide all activities
+        document.querySelectorAll('#activity91, #activity92, #activity93, #completion9').forEach(el => {
+            el.classList.add('hidden');
+        });
+        
+        // Reset Activity 1, 2, and 3
+        document.getElementById('feedback91').textContent = '';
+        document.getElementById('explanation91').classList.add('hidden');
+        document.getElementById('next91').classList.add('hidden');
+        
+        document.getElementById('feedback92').textContent = '';
+        document.getElementById('next-fallacy-container').classList.add('hidden');
+        
+        document.getElementById('feedback93').textContent = '';
+        document.getElementById('explanation93').classList.add('hidden');
+        document.getElementById('next93').classList.add('hidden');
+        document.getElementById('argument-input-container').classList.add('hidden');
+    }
 });

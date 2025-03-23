@@ -207,6 +207,7 @@
         <button id="lesson6-btn" class="lesson-btn">Lesson 6: The Detective</button>
         <button id="lesson7-btn" class="lesson-btn">Lesson 7: Missing Cookies</button>
         <button id="lesson8-btn" class="lesson-btn">Lesson 8: The Argument Clinic</button>
+        <button id="lesson9-btn" class="lesson-btn">Lesson 9: The Fallacy Fair</button>
     </div>
     
     <!-- Lesson 1 Content -->
@@ -1544,6 +1545,134 @@
             </div>
         </div>
     </div> <!-- End of Lesson 8 content -->
+
+    <!-- Lesson 9 Content -->
+    <div id="lesson9-content" class="hidden">
+        <h2>Lesson 9: The Fallacy Fair</h2>
+        
+        <div id="introduction9" class="story">
+            <h2>The Fallacy Fair</h2>
+            <p>"Alex, after learning about valid and invalid arguments, heard about a strange event: The Fallacy Fair! This wasn't a fair with rides and games; it was a fair where people showed off common mistakes in reasoning, called <em>logical fallacies</em>. These are sneaky tricks that can make an argument <em>seem</em> good, even when it's not.</p>
+            
+            <p>Alex met two vendors at the fair. The first was selling 'Hasty Generalizations.' A sign read: 'Make BIG conclusions from tiny evidence!'</p>
+            
+            <p>The vendor showed Alex a single red apple. 'See this apple?' the vendor said. 'It's red. Therefore, <em>all</em> apples are red!'</p>
+            
+            <p>Alex knew this was wrong. Alex had seen green and yellow apples before! This was a <em>hasty generalization</em> – jumping to a conclusion about <em>all</em> apples based on just <em>one</em> apple. It's like saying, 'I met one grumpy person from Townsville, so <em>everyone</em> in Townsville must be grumpy!'</p>
+            
+            <p>The next vendor was selling 'Appeals to Emotion.' A sign read: 'Win any argument with feelings, not facts!'</p>
+            
+            <p>The vendor was trying to sell a toy. 'Buy this toy!' the vendor cried. 'If you don't, the poor little toy will be so sad! It will cry all night! Don't you want to make the toy happy?'</p>
+            
+            <p>Alex realized this wasn't a logical reason to buy the toy. The vendor was using <em>feelings</em> (pity for the toy) instead of giving good reasons (like whether the toy was fun or well-made). This was an <em>appeal to emotion</em> – trying to persuade someone using feelings instead of logic. It's like saying, 'You should agree with me because if you don't, I'll be upset!'</p>
+            
+            <p>Alex also saw an example. A kid said: 'My dad told me that the Earth is round. But my dad is sometimes silly, therefore the Earth is not round.' Alex immediately saw the fallacy.</p>
+            
+            <p>Alex learned that the Fallacy Fair was a fun way to learn about common mistakes in reasoning. Knowing about fallacies helps you spot them in other people's arguments, and it helps you avoid making them yourself. It's like being a logic detective, looking for clues that an argument might be trickier than it seems!"</p>
+            
+            <button id="start-activity9" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity91" class="activity hidden">
+            <h3>Activity 1: Fallacy Identification</h3>
+            <p>Let's identify which fallacy is being used in each story - or if there's no fallacy at all!</p>
+            
+            <div class="story-card">
+                <p id="fallacy-story"></p>
+            </div>
+            
+            <div class="buttons">
+                <button id="hasty-btn" class="true-btn">Hasty Generalization</button>
+                <button id="emotion-btn" class="false-btn">Appeal to Emotion</button>
+                <button id="no-fallacy-btn" class="not-statement-btn">Not a Fallacy</button>
+            </div>
+            
+            <div id="feedback91"></div>
+            <div id="explanation91" class="hidden">
+                <p id="explanation-text91"></p>
+            </div>
+            
+            <button id="next91" class="next-btn hidden">Next Story</button>
+        </div>
+        
+        <div id="activity92" class="activity hidden">
+            <h3>Activity 2: Fallacy Warning Signs</h3>
+            <p>Let's create warning signs for each type of fallacy to help us remember how to avoid them!</p>
+            
+            <div class="fallacy-container">
+                <div class="fallacy-info">
+                    <h4 id="current-fallacy">Hasty Generalization</h4>
+                    <p id="fallacy-description">A fallacy where someone makes a broad conclusion based on too little evidence or a small sample size.</p>
+                </div>
+                
+                <div class="warning-sign-creator">
+                    <div class="warning-sign">
+                        <h3>Warning Sign:</h3>
+                        <p><strong>Definition:</strong> <span id="definition-text"></span></p>
+                        <p><strong>Example:</strong> <span id="example-text"></span></p>
+                        <p><strong>Warning Tip:</strong> <span id="tip-text"></span></p>
+                    </div>
+                    
+                    <div class="warning-inputs">
+                        <label for="definition-input">Definition:</label>
+                        <input type="text" id="definition-input" placeholder="Enter a simple definition...">
+                        
+                        <label for="example-input">Example:</label>
+                        <input type="text" id="example-input" placeholder="Enter an example...">
+                        
+                        <label for="tip-input">Warning Tip:</label>
+                        <input type="text" id="tip-input" placeholder="Enter a tip to avoid this fallacy...">
+                    </div>
+                </div>
+                
+                <button id="check-warning" class="next-btn">Create Warning Sign</button>
+            </div>
+            
+            <div id="feedback92"></div>
+            <div id="next-fallacy-container" class="hidden">
+                <button id="next92" class="next-btn">Next Fallacy</button>
+            </div>
+        </div>
+        
+        <div id="activity93" class="activity hidden">
+            <h3>Activity 3: Fallacy Role-Play</h3>
+            <p>Now let's practice using these fallacies in a role-play situation, and see if we can spot them!</p>
+            
+            <div class="role-play-card">
+                <h4>Situation:</h4>
+                <p id="situation-text"></p>
+                <div class="fallacy-choice">
+                    <p>Try to convince someone using:</p>
+                    <button id="use-hasty" class="role-btn">Hasty Generalization</button>
+                    <button id="use-emotion" class="role-btn">Appeal to Emotion</button>
+                </div>
+            </div>
+            
+            <div id="argument-input-container" class="hidden">
+                <h4>Your Argument:</h4>
+                <textarea id="argument-input" rows="3" placeholder="Write your argument here..."></textarea>
+                <button id="check-argument9" class="next-btn">Check My Argument</button>
+            </div>
+            
+            <div id="feedback93"></div>
+            <div id="explanation93" class="hidden">
+                <p id="explanation-text93"></p>
+            </div>
+            
+            <button id="next93" class="next-btn hidden">Next Situation</button>
+        </div>
+        
+        <div id="completion9" class="activity hidden">
+            <h2>Congratulations!</h2>
+            <p>You've completed Lesson 9: The Fallacy Fair!</p>
+            <p>You now understand two common logical fallacies: hasty generalization and appeal to emotion. Learning to identify these fallacies helps you evaluate arguments more critically and avoid making these mistakes in your own reasoning.</p>
+            
+            <div class="buttons">
+                <button id="restart-final9" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson8" class="next-btn">Back to Lesson 8</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 9 content -->
     
     <script src="script.js"></script>
 </body>
