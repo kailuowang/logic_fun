@@ -3092,7 +3092,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSprintIndex = 0;
     let currentNegationIndex = 0;
     let currentLogicConditionIndex = 0;
-    let currentConditionalIndex = 0;
+    // Reusing the existing currentConditionalIndex variable instead of redeclaring
+    currentConditionalIndex = 0;
     let currentDiagnosticIndex = 0;
     let selectedObjects = [];
     
