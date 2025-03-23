@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Fun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        .story {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .activity {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #4169e1;
+        }
+        .lands {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .land {
+            width: 45%;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        #trueland {
+            background-color: #adff2f;
+        }
+        #falseville {
+            background-color: #ff6347;
+        }
+        .card {
+            background-color: white;
+            border: 2px solid #4169e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .true-btn {
+            background-color: #adff2f;
+        }
+        .false-btn {
+            background-color: #ff6347;
+        }
+        .not-statement-btn {
+            background-color: #d3d3d3;
+        }
+        .feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+        }
+        .next-btn {
+            background-color: #4169e1;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+        .celebration {
+            font-size: 24px;
+            color: #4169e1;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .lesson-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .lesson-btn {
+            background-color: #4169e1;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .lesson-btn.active {
+            background-color: #1e3a8a;
+            transform: scale(1.05);
+        }
+        .mirror {
+            background-color: #c0c0c0;
+            border: 8px solid #a9a9a9;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            font-style: italic;
+            color: #333;
+            font-size: 14px;
+            text-align: center;
+            transform: rotate(-5deg);
+        }
+        .mirror-response {
+            font-weight: bold;
+            color: #ff6347;
+        }
+        .matching-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .flip-card {
+            height: 100px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        .flip-card-front {
+            background-color: #4169e1;
+            color: white;
+        }
+        .flip-card-back {
+            background-color: white;
+            color: #333;
+            transform: rotateY(180deg);
+            border: 2px solid #4169e1;
+        }
+        .drawing-area {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .canvas-container {
+            width: 45%;
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #4169e1;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logic Fun</h1>
+    
+    <div class="lesson-nav">
+        <button id="lesson1-btn" class="lesson-btn active">Lesson 1: Trueland and Falseville</button>
+        <button id="lesson2-btn" class="lesson-btn">Lesson 2: The Magic Mirror</button>
+        <button id="lesson3-btn" class="lesson-btn">Lesson 3: The Two-Ingredient Potion</button>
+        <button id="lesson4-btn" class="lesson-btn">Lesson 4: The Choice Garden</button>
+        <button id="lesson5-btn" class="lesson-btn">Lesson 5: The Wishing Well</button>
+        <button id="lesson6-btn" class="lesson-btn">Lesson 6: The Detective</button>
+    </div>
+    
+    <!-- Lesson 1 Content -->
+    <div id="lesson1-content">
+        <h2>Lesson 1: The Land of Trueland and Falseville</h2>
+    
+    <div id="introduction" class="story">
+        <h2>The Land of Trueland and Falseville</h2>
+        
+        <p>"Once upon a time, far, far away, there were two very special lands: Trueland and Falseville. In Trueland, everything that everyone said was <em>always</em> true. The sun shone brightly, the birds sang sweetly, and the flowers were always in bloom. If someone in Trueland said, 'The grass is green,' you <em>knew</em> it was absolutely, positively green!</p>
+        
+        <div class="lands">
+            <div id="trueland" class="land">
+                <h3>Trueland</h3>
+                <p>Everything that everyone said was <strong>always true</strong>.</p>
+            </div>
+            
+            <div id="falseville" class="land">
+                <h3>Falseville</h3>
+                <p>Everything that everyone said was <strong>always false</strong>.</p>
+            </div>
+        </div>
+        
+        <p>But right next door was Falseville. And in Falseville, everything was…well, the opposite! Everything everyone said was <em>always</em> false. If someone in Falseville said, 'The sky is orange,' you could be sure it was definitely <em>not</em> orange! It was probably blue, or maybe even purple!</p>
+
+        <p>One day, a little explorer named Alex decided to visit both lands. Alex loved to figure things out. Alex carried a special notebook, and whenever someone said something, Alex would write it down and decide if it belonged in Trueland or Falseville. These things Alex wrote down were called <em>Statements</em>. A Statement is something special: it can only live in <em>one</em> of these lands. It has to be either TRUE or FALSE.</p>
+        
+        <p>For example, in Trueland, a friendly baker said, 'My cookies are delicious!' Alex tasted one – and it was the tastiest cookie ever! So, Alex wrote down, 'The baker's cookies are delicious,' and put a big 'T' for True next to it. That was a <em>Statement</em>, and it belonged in Trueland.</p>
+        
+        <p>Then, Alex hopped over to Falseville. A grumpy-looking goblin said, 'I have ten noses!' Alex looked closely. The goblin only had <em>one</em> nose! So, Alex wrote down, 'The goblin has ten noses,' and put a big 'F' for False next to it. That was a <em>Statement</em> too, but it belonged in Falseville.</p>
+        
+        <p>But then, Alex heard some things that were <em>not</em> Statements. Someone in Trueland asked, 'What time is it?' Alex realized that wasn't true or false – it was a question! And in Falseville, a troll shouted, 'Go away!' That wasn't true or false either – it was a command! Questions and commands aren't Statements. They don't live in Trueland or Falseville. They're different.</p>
+        
+        <p>Alex learned that Statements are special sentences that tell us something that can be checked to see if it's true or false. They're like little clues that help us understand the world!"</p>
+        
+        <button id="start-activity" class="next-btn">Start Activities</button>
+    </div>
+    
+    <div id="activity1" class="activity hidden">
+        <h2>Activity 1: Statement Sort</h2>
+        <p>Help Alex figure out if each sentence is a statement or not!</p>
+        <p>Remember: A statement is something that can be true or false.</p>
+        
+        <div id="card1" class="card"></div>
+        
+        <div class="buttons">
+            <button id="statement-btn" class="true-btn">It's a Statement</button>
+            <button id="not-statement-btn" class="not-statement-btn">Not a Statement</button>
+        </div>
+        
+        <div id="feedback1" class="feedback"></div>
+        
+        <button id="next1" class="next-btn hidden">Next</button>
+    </div>
+    
+    <div id="activity2" class="activity hidden">
+        <h2>Activity 2: True or False</h2>
+        <p>Now, let's see if you can tell which statements are true and which ones are false!</p>
+        
+        <div id="card2" class="card"></div>
+        
+        <div class="buttons">
+            <button id="true-btn" class="true-btn">True</button>
+            <button id="false-btn" class="false-btn">False</button>
+        </div>
+        
+        <div id="feedback2" class="feedback"></div>
+        
+        <button id="next2" class="next-btn hidden">Next</button>
+    </div>
+    
+    <div id="activity3" class="activity hidden">
+        <h2>Activity 3: Statement Creation</h2>
+        <p>Now it's your turn to create statements!</p>
+        
+        <div>
+            <p>Write a true statement about something you like:</p>
+            <textarea id="true-statement" rows="2" cols="50"></textarea>
+        </div>
+        
+        <div style="margin-top: 15px;">
+            <p>Write a false statement about something in your imagination:</p>
+            <textarea id="false-statement" rows="2" cols="50"></textarea>
+        </div>
+        
+        <button id="submit-statements" class="next-btn" style="margin-top: 15px;">Submit</button>
+        
+        <div id="feedback3" class="feedback hidden">
+            Great job creating your own statements!
+        </div>
+        
+        <button id="restart" class="next-btn hidden">Restart Lesson</button>
+    </div>
+    
+    <div id="completion1" class="hidden">
+        <div class="celebration">
+            Congratulations! You've completed Lesson 1!
+        </div>
+        <p style="text-align: center;">You now understand what statements are and can recognize true and false statements.</p>
+        <div style="text-align: center;">
+            <button id="restart-final1" class="next-btn">Restart Lesson</button>
+            <button id="next-lesson" class="next-btn">Go to Lesson 2</button>
+        </div>
+    </div>
+    </div> <!-- End of Lesson 1 content -->
+    
+    <!-- Lesson 2 Content -->
+    <div id="lesson2-content" class="hidden">
+        <h2>Lesson 2: The Magic Mirror of Falseville</h2>
+        
+        <div id="introduction2" class="story">
+            <h2>The Magic Mirror of Falseville</h2>
+            
+            <p>"Remember Alex, our explorer, and the lands of Trueland and Falseville? Well, Alex continued exploring Falseville, and this time, Alex stumbled upon a very curious object: The Magic Mirror of Falseville!</p>
+            
+            <div class="mirror">
+                The Magic Mirror
+            </div>
+            
+            <p>This mirror wasn't like ordinary mirrors. This mirror didn't show your reflection; it showed the <em>opposite</em> of whatever you said to it! It took any statement and turned it into its <em>negation</em> – a fancy word for the opposite, using the word 'NOT'.</p>
+            
+            <p>Alex, being the curious explorer, decided to test it out. First, Alex said to the mirror, 'The sky is blue.' (Of course, in Falseville, saying something true means it's really false, but the mirror works on the <em>statement</em> itself).</p>
+            
+            <p>The Magic Mirror shimmered, and a voice echoed back, 'The sky is <em>NOT</em> blue!' The mirror had taken the original statement and made it its opposite.</p>
+            
+            <p>Alex tried another one. 'Cats meow.' The mirror replied, 'Cats do <em>NOT</em> meow!'</p>
+            
+            <p>Alex then remembered a grumpy goblin from a previous visit. At the time he though the goblin lived in Falseville. The goblin said 'I am happy'. Alex said the statement to the mirror, The mirror replied, 'The goblin is <em>NOT</em> happy!'. Alex realised that the goblin told a false sentence, he in fact leave in Trueland!</p>
+            
+            <p>Alex realized the mirror was showing something very important about logic. If a statement is true, its negation (the 'NOT' version) is false. And if a statement is false, its negation is true. It's like flipping a coin – heads becomes tails, and tails becomes heads. The word 'NOT' is like a magic switch!</p>
+            
+            <p>But the mirror had a rule. It could only work on <em>Statements</em>. If Alex asked a question like, 'What's your favorite color, mirror?', the mirror just stayed silent. Questions don't have opposites in the same way statements do. And if Alex gave a command like, 'Show me a dragon!', the mirror just blinked. Commands aren't statements either.</p>
+            
+            <p>Alex spent the rest of the day playing with the Magic Mirror, learning how 'NOT' could change the meaning of any statement, turning Trueland statements into Falseville statements, and Falseville statements into Trueland statements!"</p>
+            
+            <button id="start-activity2" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity21" class="activity hidden">
+            <h2>Activity 1: Mirror, Mirror</h2>
+            <p>Let's play with the Magic Mirror! Make a statement, and the mirror will show its negation (opposite).</p>
+            
+            <div class="card">
+                <input type="text" id="user-statement" placeholder="Type your statement here..." style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button id="say-to-mirror" class="next-btn">Say to Mirror</button>
+            </div>
+            
+            <div class="mirror mirror-response hidden" id="mirror-response">
+                Your statement will appear here with NOT
+            </div>
+            
+            <div id="feedback21" class="feedback"></div>
+            
+            <button id="next21" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity22" class="activity hidden">
+            <h2>Activity 2: NOT Card Matching Game</h2>
+            <p>Find matching pairs of statements and their negations!</p>
+            
+            <div class="matching-cards" id="matching-cards">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+            
+            <div id="feedback22" class="feedback"></div>
+            
+            <button id="next22" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity23" class="activity hidden">
+            <h2>Activity 3: Drawing the Opposite</h2>
+            <p id="drawing-prompt">Let's draw: "The circle is red."</p>
+            
+            <div class="drawing-area">
+                <div class="canvas-container">
+                    <p>Original Statement:</p>
+                    <canvas id="original-canvas" width="300" height="200"></canvas>
+                </div>
+                
+                <div class="canvas-container">
+                    <p>Negation (NOT): <span id="negation-text">"The circle is NOT red."</span></p>
+                    <canvas id="negation-canvas" width="300" height="200"></canvas>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button id="clear-canvas" class="next-btn">Clear Drawings</button>
+                <button id="new-drawing-prompt" class="next-btn">New Drawing Prompt</button>
+            </div>
+            
+            <div id="feedback23" class="feedback"></div>
+            
+            <button id="complete-lesson2" class="next-btn" style="margin-top: 20px;">Complete Lesson</button>
+        </div>
+        
+        <div id="completion2" class="hidden">
+            <div class="celebration">
+                Congratulations! You've completed Lesson 2!
+            </div>
+            <p style="text-align: center;">You now understand negation and how the word "NOT" changes statements from true to false and from false to true.</p>
+            <div style="text-align: center;">
+                <button id="restart-final2" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson1" class="next-btn">Back to Lesson 1</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 2 content -->
+    
+    <!-- Lesson 3 Content -->
+    <div id="lesson3-content" class="hidden">
+        <h2>Lesson 3: The Two-Ingredient Potion of Trueland</h2>
+        
+        <div id="introduction3" class="story">
+            <h2>The Two-Ingredient Potion of Trueland</h2>
+            
+            <p>"Alex, our intrepid explorer, had learned so much about Trueland and Falseville, about statements and their opposites! Now, Alex was back in Trueland, visiting the wise old wizard, Wiz. Wiz was famous for his amazing potions, but he had a very special rule: all his <em>best</em> potions needed <em>exactly</em> two ingredients, and both ingredients had to be <em>just right</em>.</p>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="background-color: #9370DB; width: 100px; height: 150px; margin: 0 auto; border-radius: 10px; position: relative; box-shadow: 0 0 15px #9370DB;">
+                    <div style="position: absolute; bottom: -20px; width: 100%; text-align: center; font-weight: bold;">STRENGTH POTION</div>
+                </div>
+            </div>
+            
+            <p>Wiz was making a 'Strength Potion' today. He held up two bottles. 'To make this potion,' Wiz explained, 'I need a Sparkling Berry <strong>AND</strong> a Glowing Leaf.' He held up the first bottle. 'This is a Sparkling Berry. Is it sparkling?' Alex looked closely – it shimmered and glittered! 'Yes!' said Alex.</p>
+            
+            <p>Wiz held up the second bottle. 'This is a Glowing Leaf. Is it glowing?' Alex saw a soft, warm light coming from the leaf. 'Yes!' confirmed Alex.</p>
+            
+            <p>Wiz carefully poured <em>both</em> ingredients into his cauldron. 'Because the berry is sparkling <em>AND</em> the leaf is glowing,' he said, 'the potion will work! If even <em>one</em> of these ingredients wasn't right, the potion would be a dud.'</p>
+            
+            <p>He stirred the potion, and it turned a vibrant, powerful purple. Success!</p>
+            
+            <p>Then, Wiz showed Alex some failed attempts. 'Yesterday,' he said, 'I tried to use a Dull Berry <em>AND</em> a Glowing Leaf.' He pointed to a murky brown potion. 'The leaf was glowing, but the berry wasn't sparkling, so the potion didn't work.'</p>
+            
+            <p>Next, he showed a pale, watery potion. 'And this one,' he sighed, 'I used a Sparkling Berry <em>AND</em> a Withered Leaf. The berry was sparkling, but the leaf wasn't glowing. No good!'</p>
+            
+            <p>Finally, he showed a completely clear, useless mixture. 'And this…well, I used a Dull Berry <em>AND</em> a Withered Leaf. Neither ingredient was right!'</p>
+            
+            <p>Alex realized that 'AND' was a very powerful word in potion-making, and in logic! When we use 'AND' to join two statements, the whole new statement is only true if <em>both</em> of the original statements are true. It's like the two-ingredient rule – both parts <em>must</em> be correct for the whole thing to work!"</p>
+            
+            <button id="start-activity3" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity31" class="activity hidden">
+            <h2>Activity 1: Potion Ingredients</h2>
+            <p>Help Wizard Wiz make successful potions by selecting the right ingredients!</p>
+            
+            <div style="background-color: #e6f7ff; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <p style="text-align: center; font-weight: bold; font-size: 18px;">Potion Success Rule:</p>
+                <p style="text-align: center; font-size: 18px;">The potion works if you have a <span style="color: #FFD700; font-weight: bold;">SPARKLING BERRY</span> AND a <span style="color: #7CFC00; font-weight: bold;">GLOWING LEAF</span>.</p>
+            </div>
+            
+            <div id="potion-scenario" class="card">
+                <div id="potion-description"></div>
+            </div>
+            
+            <div class="buttons">
+                <button id="potion-works-btn" class="true-btn">Potion Works</button>
+                <button id="potion-fails-btn" class="false-btn">Potion Fails</button>
+            </div>
+            
+            <div id="feedback31" class="feedback"></div>
+            
+            <div id="truth-table" class="hidden" style="margin-top: 30px; background-color: #f9f9f9; padding: 15px; border-radius: 10px;">
+                <h3>Truth Table for AND:</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <tr style="background-color: #4169e1; color: white;">
+                        <th style="padding: 8px; border: 1px solid #ddd;">Sparkling Berry</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Glowing Leaf</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Potion Works?</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #adff2f;">Yes (True)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #ff6347;">No (False)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #ff6347;">No (False)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #ff6347;">No (False)</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <button id="next31" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity32" class="activity hidden">
+            <h2>Activity 2: "AND" Sentence Builders</h2>
+            <p>Create sentences using AND and determine if they are true or false.</p>
+            
+            <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                <div style="width: 40%;">
+                    <h3>First Statement:</h3>
+                    <select id="first-statement" style="width: 100%; padding: 8px; font-size: 16px;">
+                        <option value="true:The sky is blue">The sky is blue (True)</option>
+                        <option value="true:Dogs have tails">Dogs have tails (True)</option>
+                        <option value="true:Water is wet">Water is wet (True)</option>
+                        <option value="false:Pigs can fly">Pigs can fly (False)</option>
+                        <option value="false:Ice is hot">Ice is hot (False)</option>
+                        <option value="false:Grass is purple">Grass is purple (False)</option>
+                    </select>
+                </div>
+                
+                <div style="width: 15%; text-align: center; padding-top: 30px;">
+                    <p style="font-weight: bold; font-size: 20px;">AND</p>
+                </div>
+                
+                <div style="width: 40%;">
+                    <h3>Second Statement:</h3>
+                    <select id="second-statement" style="width: 100%; padding: 8px; font-size: 16px;">
+                        <option value="true:Grass is green">Grass is green (True)</option>
+                        <option value="true:Fish live in water">Fish live in water (True)</option>
+                        <option value="true:1 + 1 = 2">1 + 1 = 2 (True)</option>
+                        <option value="false:The moon is made of cheese">The moon is made of cheese (False)</option>
+                        <option value="false:5 is bigger than 10">5 is bigger than 10 (False)</option>
+                        <option value="false:Bananas are blue">Bananas are blue (False)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <button id="evaluate-and" class="next-btn">Evaluate</button>
+            </div>
+            
+            <div id="compound-statement" class="card hidden"></div>
+            
+            <div class="buttons hidden" id="truth-buttons">
+                <button id="compound-true-btn" class="true-btn">True</button>
+                <button id="compound-false-btn" class="false-btn">False</button>
+            </div>
+            
+            <div id="feedback32" class="feedback"></div>
+            
+            <button id="next32" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity33" class="activity hidden">
+            <h2>Activity 3: Venn Diagram for "AND"</h2>
+            <p>Sort objects based on their characteristics using a Venn diagram.</p>
+            
+            <div style="position: relative; width: 550px; height: 300px; margin: 30px auto;">
+                <!-- First Circle -->
+                <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; left: 0; background-color: rgba(255, 0, 0, 0.2); border: 2px solid red; display: flex; justify-content: center; align-items: center;">
+                    <div style="position: absolute; top: 10px; font-weight: bold; color: red;">RED</div>
+                </div>
+                
+                <!-- Second Circle -->
+                <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; right: 0; background-color: rgba(0, 0, 255, 0.2); border: 2px solid blue; display: flex; justify-content: center; align-items: center;">
+                    <div style="position: absolute; top: 10px; font-weight: bold; color: blue;">ROUND</div>
+                </div>
+                
+                <!-- Overlapping Section Label -->
+                <div style="position: absolute; top: 150px; left: 225px; font-weight: bold; z-index: 2;">RED AND ROUND</div>
+                
+                <!-- Objects to sort -->
+                <div id="venn-items" style="text-align: center; margin-top: 320px;">
+                    <div class="venn-item" data-red="true" data-round="true" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Red Ball (Red AND Round)
+                    </div>
+                    <div class="venn-item" data-red="true" data-round="false" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Red Book (Red, Not Round)
+                    </div>
+                    <div class="venn-item" data-red="false" data-round="true" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Blue Ball (Not Red, Round)
+                    </div>
+                    <div class="venn-item" data-red="false" data-round="false" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Green Box (Not Red, Not Round)
+                    </div>
+                </div>
+            </div>
+            
+            <div id="feedback33" class="feedback"></div>
+            
+            <p style="margin-top: 20px; text-align: center;">Click on an object to learn about its classification in the Venn diagram.</p>
+            
+            <button id="complete-lesson3" class="next-btn" style="margin-top: 20px;">Complete Lesson</button>
+        </div>
+        
+        <div id="completion3" class="hidden">
+            <div class="celebration">
+                Congratulations! You've completed Lesson 3!
+            </div>
+            <p style="text-align: center;">You now understand conjunction (AND) and how statements connected with AND are only true when BOTH individual statements are true.</p>
+            <div style="text-align: center;">
+                <button id="restart-final3" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson2" class="next-btn">Back to Lesson 2</button>
+                <button id="next-to-lesson4" class="next-btn">Go to Lesson 4</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 3 content -->
+    
+    <!-- Lesson 4 Content -->
+    <div id="lesson4-content" class="hidden">
+        <h2>Lesson 4: The Choice Garden of Trueland</h2>
+        
+        <div id="introduction4" class="story">
+            <h2>The Choice Garden of Trueland</h2>
+            
+            <p>"Alex, our ever-curious explorer, was still in Trueland, and this time, Alex had wandered into a magical place: The Choice Garden. This garden was special because to enter, you had to choose <em>one</em> of two paths, and each path had a sign.</p>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: inline-block; background-color: #90EE90; width: 150px; height: 150px; margin: 0 20px; border-radius: 10px; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold;">PATH 1</div>
+                </div>
+                <div style="display: inline-block; background-color: #ADD8E6; width: 150px; height: 150px; margin: 0 20px; border-radius: 10px; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold;">PATH 2</div>
+                </div>
+            </div>
+            
+            <p>The wise gardener, Flora, greeted Alex. 'Welcome, traveler!' Flora said. 'To enter my garden, you must follow the rule of the signs. Today, the signs say: "You may enter if you have a RED flower <em>OR</em> a BLUE feather."'</p>
+            
+            <p>Flora held up a red flower and a blue feather. 'Notice,' Flora explained, 'you only need <em>one</em> of these to be true to enter. You can have the red flower, <em>or</em> you can have the blue feather, <em>or</em> you can have both! As long as <em>at least one</em> of these is true, you can come in.'</p>
+            
+            <p>Alex looked in their bag. They didn't have a red flower, but they <em>did</em> have a blue feather! 'I can enter!' Alex exclaimed.</p>
+            
+            <p>Flora smiled. 'That's right! Because you have a blue feather, the rule "Red flower OR blue feather" is true for you.'</p>
+            
+            <p>Then, a little bird hopped up to the gate. The bird had a red flower in its beak, but no blue feather. 'Can I enter?' chirped the bird.</p>
+            
+            <p>'Yes!' said Flora. 'You have the red flower, so the rule is true for you, even though you don't have the blue feather.'</p>
+            
+            <p>Next, a squirrel scampered up, carrying <em>both</em> a red flower <em>and</em> a blue feather! 'I have both!' chattered the squirrel.</p>
+            
+            <p>'Of course, you can enter!' Flora replied. 'Having both still means the rule is true.'</p>
+            
+            <p>Finally, a grumpy badger shuffled up. The badger had neither a red flower nor a blue feather. 'Can I go in?' grumbled the badger.</p>
+            
+            <p>'I'm afraid not,' said Flora gently. 'You don't have the red flower, and you don't have the blue feather. The rule isn't true for you.'</p>
+            
+            <p>Alex learned that 'OR' is different from 'AND'. With 'OR', only <em>one</em> of the statements needs to be true for the whole thing to be true. It's like having a choice – you can take this path <em>or</em> that path, and either one (or both) will get you where you need to go. It gives you more options!"</p>
+            
+            <button id="start-activity4" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity41" class="activity hidden">
+            <h2>Activity 1: Garden Gate</h2>
+            <p>Help Flora decide who can enter the Choice Garden!</p>
+            
+            <div style="background-color: #e6f7ff; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <p style="text-align: center; font-weight: bold; font-size: 18px;">Garden Entry Rule:</p>
+                <p style="text-align: center; font-size: 18px;">You may enter if you have a <span style="color: #FF6347; font-weight: bold;">RED FLOWER</span> OR a <span style="color: #1E90FF; font-weight: bold;">BLUE FEATHER</span>.</p>
+            </div>
+            
+            <div id="visitor-scenario" class="card">
+                <div id="visitor-description"></div>
+            </div>
+            
+            <div class="buttons">
+                <button id="can-enter-btn" class="true-btn">Can Enter</button>
+                <button id="cannot-enter-btn" class="false-btn">Cannot Enter</button>
+            </div>
+            
+            <div id="feedback41" class="feedback"></div>
+            
+            <div id="or-truth-table" class="hidden" style="margin-top: 30px; background-color: #f9f9f9; padding: 15px; border-radius: 10px;">
+                <h3>Truth Table for OR:</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <tr style="background-color: #4169e1; color: white;">
+                        <th style="padding: 8px; border: 1px solid #ddd;">Red Flower</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Blue Feather</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Can Enter?</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #adff2f;">Yes (True)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #adff2f;">Yes (True)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (True)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #adff2f;">Yes (True)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No (False)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; background-color: #ff6347;">No (False)</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <button id="next41" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity42" class="activity hidden">
+            <h2>Activity 2: "OR" Sentence Builders</h2>
+            <p>Create sentences using OR and determine if they are true or false.</p>
+            
+            <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                <div style="width: 40%;">
+                    <h3>First Statement:</h3>
+                    <select id="first-statement-or" style="width: 100%; padding: 8px; font-size: 16px;">
+                        <option value="true:The sky is blue">The sky is blue (True)</option>
+                        <option value="true:Dogs have tails">Dogs have tails (True)</option>
+                        <option value="true:Water is wet">Water is wet (True)</option>
+                        <option value="false:Pigs can fly">Pigs can fly (False)</option>
+                        <option value="false:Ice is hot">Ice is hot (False)</option>
+                        <option value="false:Grass is purple">Grass is purple (False)</option>
+                    </select>
+                </div>
+                
+                <div style="width: 15%; text-align: center; padding-top: 30px;">
+                    <p style="font-weight: bold; font-size: 20px;">OR</p>
+                </div>
+                
+                <div style="width: 40%;">
+                    <h3>Second Statement:</h3>
+                    <select id="second-statement-or" style="width: 100%; padding: 8px; font-size: 16px;">
+                        <option value="true:Grass is green">Grass is green (True)</option>
+                        <option value="true:Fish live in water">Fish live in water (True)</option>
+                        <option value="true:1 + 1 = 2">1 + 1 = 2 (True)</option>
+                        <option value="false:The moon is made of cheese">The moon is made of cheese (False)</option>
+                        <option value="false:5 is bigger than 10">5 is bigger than 10 (False)</option>
+                        <option value="false:Bananas are blue">Bananas are blue (False)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <button id="evaluate-or" class="next-btn">Evaluate</button>
+            </div>
+            
+            <div id="compound-statement-or" class="card hidden"></div>
+            
+            <div class="buttons hidden" id="truth-buttons-or">
+                <button id="compound-true-btn-or" class="true-btn">True</button>
+                <button id="compound-false-btn-or" class="false-btn">False</button>
+            </div>
+            
+            <div id="feedback42" class="feedback"></div>
+            
+            <button id="next42" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity43" class="activity hidden">
+            <h2>Activity 3: Venn Diagram for "OR"</h2>
+            <p>Learn how Venn diagrams show the concept of "OR".</p>
+            
+            <div style="position: relative; width: 550px; height: 350px; margin: 30px auto;">
+                <!-- First Circle -->
+                <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; left: 0; background-color: rgba(0, 128, 0, 0.2); border: 2px solid green; display: flex; justify-content: center; align-items: center;">
+                    <div style="position: absolute; top: 10px; font-weight: bold; color: green;">GREEN</div>
+                </div>
+                
+                <!-- Second Circle -->
+                <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; right: 0; background-color: rgba(0, 0, 255, 0.2); border: 2px solid blue; display: flex; justify-content: center; align-items: center;">
+                    <div style="position: absolute; top: 10px; font-weight: bold; color: blue;">SQUARE</div>
+                </div>
+                
+                <!-- Combined area shade for OR -->
+                <div style="position: absolute; top: 320px; text-align: center; width: 100%; font-weight: bold;">
+                    Everything in EITHER circle satisfies "GREEN OR SQUARE"
+                </div>
+                
+                <!-- Objects to illustrate -->
+                <div id="venn-items-or" style="text-align: center; margin-top: 370px;">
+                    <div class="venn-item-or" data-green="true" data-square="true" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Green Square
+                    </div>
+                    <div class="venn-item-or" data-green="true" data-square="false" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Green Circle
+                    </div>
+                    <div class="venn-item-or" data-green="false" data-square="true" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Red Square
+                    </div>
+                    <div class="venn-item-or" data-green="false" data-square="false" style="display: inline-block; margin: 5px; padding: 10px; background-color: #f9f9f9; border-radius: 5px; cursor: pointer;">
+                        Red Circle
+                    </div>
+                </div>
+            </div>
+            
+            <div id="feedback43" class="feedback"></div>
+            
+            <p style="margin-top: 20px; text-align: center;">Click on an object to learn if it satisfies the "GREEN OR SQUARE" condition.</p>
+            
+            <div id="compare-and-or" class="hidden" style="margin-top: 30px; background-color: #f9f9f9; padding: 15px; border-radius: 10px;">
+                <h3>Comparing AND vs OR:</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <tr style="background-color: #4169e1; color: white;">
+                        <th style="padding: 8px; border: 1px solid #ddd;">Condition</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">AND</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">OR</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">How many parts need to be true?</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">BOTH parts</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">AT LEAST ONE part</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">Example of true statement</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">"The sky is blue AND grass is green"</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">"Pigs can fly OR fish live in water"</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">In Venn diagram</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Only the overlapping part</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Everything in either circle</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <button id="complete-lesson4" class="next-btn" style="margin-top: 20px;">Complete Lesson</button>
+        </div>
+        
+        <div id="completion4" class="hidden">
+            <div class="celebration">
+                Congratulations! You've completed Lesson 4!
+            </div>
+            <p style="text-align: center;">You now understand disjunction (OR) and how statements connected with OR are true when AT LEAST ONE of the individual statements is true.</p>
+            <div style="text-align: center;">
+                <button id="restart-final4" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson3" class="next-btn">Back to Lesson 3</button>
+                <button id="next-to-lesson5" class="next-btn">Go to Lesson 5</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 4 content -->
+    
+    <!-- Lesson 5 Content -->
+    <div id="lesson5-content" class="hidden">
+        <h2>Lesson 5: The Magical Wishing Well of If-Then</h2>
+        
+        <div id="introduction5" class="story">
+            <h2>The Magical Wishing Well of If-Then</h2>
+            
+            <p>"Alex, our explorer, had learned so much about logic! Today, Alex discovered something truly amazing: The Magical Wishing Well of If-Then. This well didn't grant just <em>any</em> wish; it granted wishes that followed a special rule: an 'IF...THEN...' rule.</p>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: inline-block; background-color: #6495ED; width: 150px; height: 150px; border-radius: 75px 75px 35px 35px; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                    <div style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">WISHING WELL</div>
+                    <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #e6f7ff;">IF...THEN...</div>
+                </div>
+            </div>
+            
+            <p>A sign on the well read: 'To make a wish, you must say it in the form: IF [something is true], THEN [something else will happen].'</p>
+            
+            <p>Alex thought for a moment. Then, Alex carefully said, 'IF I drop a coin in the well, THEN I will make a wish come true.' Alex dropped a coin into the well, and <em>poof!</em> – a small, toy unicorn appeared! The well had followed the 'IF...THEN...' rule.</p>
+            
+            <p>A little rabbit hopped up to the well. The rabbit said, 'IF I sing a song, THEN I will get a carrot.' The rabbit sang a sweet little tune, and <em>pop!</em> – a juicy carrot appeared!</p>
+            
+            <p>Then, a grumpy bear lumbered up. The bear grumbled, 'I want a fish!'</p>
+            
+            <p>The well remained silent. Nothing happened.</p>
+            
+            <p>Alex realized why. The bear hadn't used the 'IF...THEN...' rule! The well only understood wishes in that special form. It's like a secret code.</p>
+            
+            <p>The bear, after some prompting from Alex, tried again. This time, the bear said, 'IF I clap my paws three times, THEN I will get a fish.' The bear clapped three times, and <em>splash!</em> – a delicious-looking fish landed right in front of him.</p>
+            
+            <p>Alex learned that the Wishing Well was teaching a valuable lesson about <em>conditional statements</em>. These statements have two parts:</p>
+            
+            <ul>
+                <li>The 'IF' part: This is called the <em>hypothesis</em> (or the condition). It's something that might be true or false.</li>
+                <li>The 'THEN' part: This is called the <em>conclusion</em>. It's what happens <em>if</em> the 'IF' part is true.</li>
+            </ul>
+            
+            <p>It's like a promise: <em>If</em> the first part happens, <em>then</em> the second part will happen. The Wishing Well always kept its promise!"</p>
+            
+            <button id="start-activity5" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity51" class="activity hidden">
+            <h2>Activity 1: Wishing Well Role-Play</h2>
+            <p>Make wishes using the IF...THEN... format. If your format is correct and you fulfill the condition, your wish will be granted!</p>
+            
+            <div style="background-color: #e6f7ff; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <p style="text-align: center; font-weight: bold; font-size: 18px;">Wishing Well Rule:</p>
+                <p style="text-align: center; font-size: 18px;">Your wish must be in the format: "IF [condition], THEN [result]."</p>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; margin: 30px 0;">
+                <div style="width: 45%;">
+                    <h3>Make Your Wish:</h3>
+                    <div style="margin-bottom: 10px;">
+                        <label for="if-part">IF:</label>
+                        <input type="text" id="if-part" style="width: 100%; padding: 8px; margin-top: 5px;" placeholder="(your condition)">
+                    </div>
+                    <div>
+                        <label for="then-part">THEN:</label>
+                        <input type="text" id="then-part" style="width: 100%; padding: 8px; margin-top: 5px;" placeholder="(your result)">
+                    </div>
+                    <button id="make-wish" class="next-btn" style="margin-top: 15px;">Make Wish</button>
+                </div>
+                
+                <div style="width: 45%; background-color: #f9f9f9; padding: 15px; border-radius: 10px;">
+                    <h3>Wishing Well Response:</h3>
+                    <div id="well-response" style="min-height: 100px; padding: 10px; border: 1px dashed #ccc; margin-top: 10px;">
+                        Make a wish using the IF...THEN... format!
+                    </div>
+                </div>
+            </div>
+            
+            <div id="wish-examples" style="margin: 20px 0; background-color: #f9f9f9; padding: 15px; border-radius: 10px;">
+                <h3>Example Wishes:</h3>
+                <ul>
+                    <li><strong>Good format:</strong> "IF I clap my hands, THEN I will get a star."</li>
+                    <li><strong>Bad format:</strong> "I want a star!"</li>
+                    <li><strong>Good format but condition not met:</strong> "IF I do a backflip, THEN I will get a trophy." (if you can't do a backflip)</li>
+                </ul>
+            </div>
+            
+            <div id="feedback51" class="feedback"></div>
+            
+            <button id="next51" class="next-btn" style="margin-top: 15px;">Next Activity</button>
+        </div>
+        
+        <div id="activity52" class="activity hidden">
+            <h2>Activity 2: If-Then Sentence Completion</h2>
+            <p>Complete the sentences by filling in either the IF part or the THEN part.</p>
+            
+            <div id="sentence-completion-container">
+                <!-- Sentence completion cards will be generated by JavaScript -->
+                <div class="sentence-card" style="background-color: #fff; border-radius: 10px; padding: 15px; margin: 15px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <p>
+                        <span class="if-prompt">IF it rains...</span>
+                        <input type="text" class="then-input" placeholder="THEN..." style="width: 70%; padding: 8px; margin-left: 10px;">
+                    </p>
+                    <button class="check-completion next-btn" style="margin-top: 10px;">Check</button>
+                    <div class="completion-feedback feedback"></div>
+                </div>
+                
+                <div class="sentence-card" style="background-color: #fff; border-radius: 10px; padding: 15px; margin: 15px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <p>
+                        <input type="text" class="if-input" placeholder="IF..." style="width: 70%; padding: 8px; margin-right: 10px;">
+                        <span class="then-prompt">THEN I will be happy.</span>
+                    </p>
+                    <button class="check-completion next-btn" style="margin-top: 10px;">Check</button>
+                    <div class="completion-feedback feedback"></div>
+                </div>
+            </div>
+            
+            <div id="feedback52" class="feedback"></div>
+            
+            <button id="next52" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity53" class="activity hidden">
+            <h2>Activity 3: Drawing Conditional Scenarios</h2>
+            <p>Draw pictures to illustrate IF-THEN statements and see how causes lead to effects.</p>
+            
+            <div id="conditional-drawing">
+                <div style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                    <h3 id="draw-prompt">IF a plant gets water, THEN it will grow.</h3>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                    <div style="width: 48%; text-align: center;">
+                        <h4>IF part (Condition):</h4>
+                        <canvas id="if-canvas" width="350" height="250" style="border: 2px solid #4169e1; background-color: white;"></canvas>
+                    </div>
+                    
+                    <div style="width: 48%; text-align: center;">
+                        <h4>THEN part (Result):</h4>
+                        <canvas id="then-canvas" width="350" height="250" style="border: 2px solid #4169e1; background-color: white;"></canvas>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <button id="clear-drawings" class="next-btn">Clear Drawings</button>
+                    <button id="new-drawing-prompt" class="next-btn">New Prompt</button>
+                </div>
+            </div>
+            
+            <div id="feedback53" class="feedback"></div>
+            
+            <button id="complete-lesson5" class="next-btn" style="margin-top: 20px;">Complete Lesson</button>
+        </div>
+        
+        <div id="completion5" class="hidden">
+            <div class="celebration">
+                Congratulations! You've completed Lesson 5!
+            </div>
+            <p style="text-align: center;">You now understand conditional statements (IF-THEN) and how they work like promises: if the condition is met, then the result follows.</p>
+            <div style="text-align: center;">
+                <button id="restart-final5" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson4" class="next-btn">Back to Lesson 4</button>
+                <button id="next-to-lesson6" class="next-btn">Go to Lesson 6</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 5 content -->
+    
+    <!-- Lesson 6 Content -->
+    <div id="lesson6-content" class="hidden">
+        <h2>Lesson 6: The Detective of If-Thenville</h2>
+        
+        <div id="introduction6" class="story">
+            <h2>The Detective of If-Thenville</h2>
+            
+            <p>"Alex, after learning about the Wishing Well, traveled to a new town: If-Thenville! This town was full of detectives who used 'IF...THEN...' statements to solve mysteries. The best detective in town was Detective Dana, and Alex was eager to learn from her.</p>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: inline-block; background-color: #F5DEB3; width: 100px; height: 150px; position: relative; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background-color: #8B4513; border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: 20px; width: 100%; text-align: center; font-weight: bold;">DETECTIVE DANA</div>
+                </div>
+            </div>
+            
+            <p>Detective Dana was working on a case. She had a clue: 'IF the burglar wore gloves, THEN there will be no fingerprints.' This was her main <em>conditional statement</em>.</p>
+            
+            <p>Detective Dana went to the scene of the crime – a bakery! She looked carefully. There were <em>no</em> fingerprints anywhere!</p>
+            
+            <p>'Aha!' said Detective Dana. 'The clue said, "IF the burglar wore gloves, THEN there will be no fingerprints." There are <em>no</em> fingerprints. This strongly suggests the burglar <em>did</em> wear gloves!'</p>
+            
+            <p>Then, Detective Dana found another clue. This one said: 'IF the baker was sleeping, THEN he didn't hear the burglar.'</p>
+            
+            <p>Detective Dana interviewed the baker. The baker said, 'I was wide awake! I was baking bread all night!'</p>
+            
+            <p>'Hmm,' thought Detective Dana. 'The clue said, "IF the baker was sleeping, THEN he didn't hear the burglar." But the baker was <em>not</em> sleeping. That means I can't be sure, the second part is not informative.'</p>
+            
+            <p>Later, a witness came forward. The witness said, 'I saw the burglar! He definitely <em>wasn't</em> wearing gloves!'</p>
+            
+            <p>Detective Dana revisited her first clue: 'IF the burglar wore gloves, THEN there will be no fingerprints.' The witness said the burglar did <em>not</em> wear gloves. 'So,' thought Dana, 'there <em>should</em> be fingerprints! Let's look again!'</p>
+            
+            <p>This time, examining a different part of the counter, she found faint fingerprints! The witness was right! The lack of gloves led to fingerprints being found, confirming the conditional statement.</p>
+            
+            <p>Alex learned that 'IF...THEN...' statements are powerful tools for detectives. They help you think about what <em>should</em> happen if something is true, and what you can conclude if you know something about the 'IF' part or the 'THEN' part. But you have to be careful! Knowing the 'THEN' part is false tells you something about the 'IF' part, but knowing the 'THEN' part is true doesn't <em>always</em> tell you for sure about the 'IF' part."</p>
+            
+            <button id="start-activity6" class="next-btn">Start Activities</button>
+        </div>
+        
+        <div id="activity61" class="activity hidden">
+            <h2>Activity 1: Detective Clues</h2>
+            <p>Let's practice reasoning with conditional statements. You'll be given a clue (an IF-THEN statement) and some evidence. Use your detective skills to draw a conclusion!</p>
+            
+            <div style="background-color: #e6f7ff; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <div id="clue-card" style="background-color: #fff; border: 2px solid #4169e1; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                    <h3 style="color: #4169e1; margin-top: 0;">CLUE:</h3>
+                    <p id="clue-text" style="font-size: 18px;"></p>
+                </div>
+                
+                <div id="evidence-card" style="background-color: #fff; border: 2px solid #4169e1; border-radius: 8px; padding: 15px;">
+                    <h3 style="color: #4169e1; margin-top: 0;">EVIDENCE:</h3>
+                    <p id="evidence-text" style="font-size: 18px;"></p>
+                </div>
+            </div>
+            
+            <p>Based on the clue and evidence, what can you conclude?</p>
+            
+            <div style="margin: 20px 0;">
+                <div id="conclusion-options">
+                    <div style="margin-bottom: 10px;">
+                        <input type="radio" id="conclusion1" name="conclusion" value="conclusion1">
+                        <label for="conclusion1" id="conclusion1-label"></label>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <input type="radio" id="conclusion2" name="conclusion" value="conclusion2">
+                        <label for="conclusion2" id="conclusion2-label"></label>
+                    </div>
+                    <div>
+                        <input type="radio" id="conclusion3" name="conclusion" value="conclusion3">
+                        <label for="conclusion3" id="conclusion3-label"></label>
+                    </div>
+                </div>
+                
+                <button id="check-conclusion" class="next-btn" style="margin-top: 15px;">Check Conclusion</button>
+            </div>
+            
+            <div id="feedback61" class="feedback"></div>
+            
+            <div id="reasoning-explanation" class="hidden" style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                <h3>Detective's Reasoning:</h3>
+                <p id="reasoning-text"></p>
+            </div>
+            
+            <button id="next61" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity62" class="activity hidden">
+            <h2>Activity 2: Conditional Consequences</h2>
+            <p>Let's explore what happens when the "IF" part of a conditional statement is true or false. We'll trace the chain of consequences.</p>
+            
+            <div style="background-color: #e6f7ff; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <h3 style="margin-top: 0;">Conditional Statement:</h3>
+                <p id="chain-conditional" style="font-size: 18px; font-weight: bold;"></p>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; margin: 30px 0;">
+                <div style="width: 48%; background-color: #f0fff0; padding: 15px; border-radius: 10px;">
+                    <h3>IF Part is TRUE:</h3>
+                    <p id="if-true-text"></p>
+                    <div id="consequences-true" style="margin-top: 15px;">
+                        <p>What happens next? Complete the chain of consequences:</p>
+                        <div style="margin-bottom: 10px;">
+                            <textarea id="consequence1-true" rows="2" style="width: 100%; padding: 8px;" placeholder="THEN..."></textarea>
+                        </div>
+                        <div>
+                            <textarea id="consequence2-true" rows="2" style="width: 100%; padding: 8px;" placeholder="THEN..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="width: 48%; background-color: #fff0f0; padding: 15px; border-radius: 10px;">
+                    <h3>IF Part is FALSE:</h3>
+                    <p id="if-false-text"></p>
+                    <div id="consequences-false" style="margin-top: 15px;">
+                        <p>What happens next? Complete the chain of consequences:</p>
+                        <div style="margin-bottom: 10px;">
+                            <textarea id="consequence1-false" rows="2" style="width: 100%; padding: 8px;" placeholder="THEN..."></textarea>
+                        </div>
+                        <div>
+                            <textarea id="consequence2-false" rows="2" style="width: 100%; padding: 8px;" placeholder="THEN..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button id="check-consequences" class="next-btn">Check Consequences</button>
+            </div>
+            
+            <div id="feedback62" class="feedback"></div>
+            
+            <button id="next62" class="next-btn hidden">Next Activity</button>
+        </div>
+        
+        <div id="activity63" class="activity hidden">
+            <h2>Activity 3: Breaking the Promise</h2>
+            <p>Conditionals are like promises. Let's see if these promises are kept or broken based on the situations.</p>
+            
+            <div style="background-color: #e6f7ff; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <div id="promise-card" style="background-color: #fff; border: 2px solid #4169e1; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                    <h3 style="color: #4169e1; margin-top: 0;">CONDITIONAL:</h3>
+                    <p id="promise-text" style="font-size: 18px;"></p>
+                </div>
+                
+                <div id="situation-card" style="background-color: #fff; border: 2px solid #4169e1; border-radius: 8px; padding: 15px;">
+                    <h3 style="color: #4169e1; margin-top: 0;">SITUATION:</h3>
+                    <p id="situation-text" style="font-size: 18px;"></p>
+                </div>
+            </div>
+            
+            <p>Is the promise (conditional) respected or broken in this situation?</p>
+            
+            <div class="buttons">
+                <button id="promise-respected-btn" class="true-btn">Respected</button>
+                <button id="promise-broken-btn" class="false-btn">Broken</button>
+            </div>
+            
+            <div id="feedback63" class="feedback"></div>
+            
+            <div id="promise-explanation" class="hidden" style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                <h3>Explanation:</h3>
+                <p id="promise-explanation-text"></p>
+            </div>
+            
+            <button id="complete-lesson6" class="next-btn hidden" style="margin-top: 20px;">Complete Lesson</button>
+        </div>
+        
+        <div id="completion6" class="hidden">
+            <div class="celebration">
+                Congratulations! You've completed Lesson 6!
+            </div>
+            <p style="text-align: center;">You now understand how to use conditional statements (IF-THEN) for logical reasoning and drawing valid conclusions.</p>
+            <div style="text-align: center;">
+                <button id="restart-final6" class="next-btn">Restart Lesson</button>
+                <button id="back-to-lesson5" class="next-btn">Back to Lesson 5</button>
+            </div>
+        </div>
+    </div> <!-- End of Lesson 6 content -->
+    
+    <script src="script.js"></script>
+</body>
+</html>
